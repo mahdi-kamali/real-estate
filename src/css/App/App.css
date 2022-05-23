@@ -1,0 +1,4209 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500&family=Quicksand:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&display=swap");
+@font-face {
+  font-family: BebasKai;
+  src: url("/src/fonts/BebasKai.otf");
+}
+
+html,
+body {
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+  padding: 0;
+  margin: 0;
+  font-family: "Abel", sans-serif !important;
+  width: 100%;
+  background-color: #d2dce7;
+}
+
+html ul,
+html p,
+html h1,
+html h2,
+html h3,
+html h4,
+html h5,
+html h6,
+html a,
+body ul,
+body p,
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6,
+body a {
+  all: unset;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  color: black;
+}
+
+html img,
+body img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html button,
+body button {
+  position: relative;
+  background-color: skyblue;
+  -webkit-transition: all 0.5s !important;
+  transition: all 0.5s !important;
+  cursor: pointer !important;
+}
+
+html button:hover,
+body button:hover {
+  -webkit-transform: scale(0.9) !important;
+          transform: scale(0.9) !important;
+}
+
+html .grid-responsive-16rem,
+body .grid-responsive-16rem {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(16rem, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+html .grid-responsive-6rem,
+body .grid-responsive-6rem {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(6rem, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
+}
+
+html .grid-responsive-8rem,
+body .grid-responsive-8rem {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(8rem, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+}
+
+html .flex-responsive-7rem,
+body .flex-responsive-7rem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+html .flex-responsive-7rem *,
+body .flex-responsive-7rem * {
+  width: 7rem;
+}
+
+html .flex-responsive-14rem,
+body .flex-responsive-14rem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+html .flex-responsive-14rem .item,
+body .flex-responsive-14rem .item {
+  width: 14rem;
+}
+
+html ::-webkit-scrollbar,
+body ::-webkit-scrollbar {
+  background-color: transparent;
+  width: 0.7rem;
+}
+
+html ::-webkit-scrollbar-track,
+body ::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+html ::-webkit-scrollbar-thumb,
+body ::-webkit-scrollbar-thumb {
+  background-color: #4a617f;
+  background-clip: padding-box;
+}
+
+.App {
+  height: 100vh;
+  width: 100%;
+}
+
+.App * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.App .slick-list {
+  -webkit-transition: height 0.5s ease;
+  transition: height 0.5s ease;
+}
+
+.App header {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem 2rem;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  background: #f5f5f5;
+  -webkit-box-shadow: 0rem 0.15em 0.3rem 0.1rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0rem 0.15em 0.3rem 0.1rem rgba(0, 0, 0, 0.2);
+  height: 5rem;
+}
+
+.App header .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.7rem;
+}
+
+.App header .left .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  color: black;
+  gap: 0.4rem;
+}
+
+.App header .left .logo img {
+  width: 3rem;
+}
+
+.App header .left .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.App header .left .text .row {
+  all: unset;
+  text-transform: uppercase;
+}
+
+.App header .left .text .row h1 {
+  all: unset;
+  font-size: 1.2rem;
+}
+
+.App header .left .rent {
+  margin-left: 2rem;
+}
+
+.App header .left .rent,
+.App header .left .buy,
+.App header .left .mortgage {
+  text-align: center;
+  text-transform: capitalize;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+
+.App header .left .rent button,
+.App header .left .buy button,
+.App header .left .mortgage button {
+  all: unset;
+  padding: 0.3rem 0.7rem;
+  min-width: 6ch;
+  border-bottom: 0.1rem solid transparent;
+  border-radius: 0.3rem;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  background-color: #4a617f;
+  color: white;
+}
+
+.App header .left .rent button:hover,
+.App header .left .buy button:hover,
+.App header .left .mortgage button:hover {
+  background-color: #4a617fb0;
+}
+
+.App header .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 1rem;
+}
+
+.App header .right .header-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  margin-right: 1rem;
+}
+
+.App header .right .header-list li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  padding: 0.3rem 0rem;
+  position: relative;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.App header .right .header-list li span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 0.9rem;
+  width: 3ch;
+  height: 3ch;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+}
+
+.App header .right .header-list li::after {
+  content: "";
+  width: 0%;
+  position: absolute;
+  left: 0;
+  bottom: -10%;
+  height: 0.1rem;
+  background-color: black;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.App header .right .header-list li:hover::after {
+  width: 100%;
+}
+
+.App header .right .account {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.3rem;
+  border: 0.1rem rgba(0, 0, 0, 0.25) solid;
+  padding: 0.3rem 0.7rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  -ms-flex-item-align: center;
+      align-self: center;
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+  background-color: transparent;
+}
+
+.App header .right .account svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.App header .right .side-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App header .right .side-bar ::-webkit-scrollbar-thumb {
+  background-color: white;
+  background-clip: padding-box;
+}
+
+.App header .right .side-bar .side-bar-open-close-button {
+  width: 2rem;
+  height: 100%;
+  font-size: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App header .right .side-bar .side-bar-open-close-button button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: none;
+  background-color: transparent;
+}
+
+.App header .right .side-bar .side-bar-acordion-list {
+  margin-top: 5rem;
+  padding-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #4a617f;
+  width: 20rem;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  top: 0;
+  right: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-transform: translateY(-120%);
+          transform: translateY(-120%);
+  padding-bottom: 20vh;
+  gap: 1rem;
+}
+
+.App header .right .side-bar .side-bar-acordion-list svg {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.App header .right .side-bar .side-bar-acordion-list .accordion-item {
+  background-color: transparent;
+  border: none;
+  padding: 0 2rem;
+}
+
+.App header .right .side-bar .side-bar-acordion-list .accordion-item * {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none !important;
+  outline: none !important;
+}
+
+.App header .right .side-bar .side-bar-acordion-list .accordion-item h1 {
+  padding: 1rem 2rem;
+  width: 100%;
+  background-color: white;
+}
+
+.App header .right .side-bar .side-bar-acordion-list .accordion-item .accordion-header .accordion-button {
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-left: 0.1rem transparent solid !important;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.App header .right .side-bar .side-bar-acordion-list .accordion-item .accordion-header .accordion-button:hover {
+  -webkit-transform: scale(1) !important;
+          transform: scale(1) !important;
+  border-left: 0.3rem white solid !important;
+}
+
+.App header .right .side-bar .side-bar-acordion-list .accordion-item .accordion-header .accordion-button::after {
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
+.App header .right .side-bar .side-bar-acordion-list .accordion-item .accordion-header .collapsed {
+  background-color: transparent;
+  color: white;
+  border-radius: 0rem 0rem 0 0;
+}
+
+.App header .right .side-bar .side-bar-acordion-list .accordion-item .accordion-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5rem;
+  padding: 2rem 2rem;
+  padding-top: 0.5rem;
+}
+
+.App header .right .side-bar .side-bar-acordion-list .accordion-item .accordion-body .item a {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: relative;
+}
+
+.App header .right .side-bar .side-bar-acordion-list .accordion-item .accordion-body .item a::after {
+  position: absolute;
+  bottom: -0.2rem;
+  left: 0;
+  right: 0;
+  border-bottom: 0.1rem black solid !important;
+  content: "";
+  width: 0%;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.App header .right .side-bar .side-bar-acordion-list .accordion-item .accordion-body .item a:hover::after {
+  width: 100%;
+}
+
+.App header .right .side-bar .side-bar-acordion-list .accordion-item .accordion-collapse {
+  background-color: white !important;
+  border-radius: 0rem 0rem 1rem 1rem;
+}
+
+.App header .right .side-bar .side-bar-acordion-list .no-acordion-item {
+  width: 15.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  padding: 1rem;
+  color: white;
+  gap: 0.5rem;
+  -webkit-transition: all 0.5s ease !important;
+  transition: all 0.5s ease !important;
+  border-left: 0rem transparent solid;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+
+.App header .right .side-bar .side-bar-acordion-list .no-acordion-item path {
+  fill: white;
+}
+
+.App header .right .side-bar .side-bar-acordion-list .no-acordion-item:hover {
+  border-left: 0.3rem white solid;
+}
+
+.App header .right .side-bar .side-bar-acordion-list .side-bar-accordion-account {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.3rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: white;
+  border: 0.1rem white solid;
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+  background-color: transparent;
+}
+
+.App header .right .side-bar .side-bar-acordion-list .side-bar-accordion-account svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.App section {
+  height: 100vh;
+  width: 100%;
+}
+
+.App .card {
+  border: none;
+}
+
+.App .intro {
+  color: white;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0.2fr 0.8fr;
+      grid-template-columns: 0.2fr 0.8fr;
+  padding-top: 5rem;
+}
+
+.App .intro .intro-header {
+  background-color: rebeccapurple;
+}
+
+.App .intro .intro-body {
+  height: 50%;
+}
+
+.App .intro .intro-body .intro-image {
+  height: 100%;
+}
+
+.App .intro .intro-body .intro-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.App .category {
+  scroll-snap-align: initial !important;
+  display: -ms-grid;
+  display: grid;
+  gap: 2rem;
+  -ms-grid-columns: (minmax(24rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  min-height: 100vh;
+  scroll-snap-align: normal !important;
+  place-items: center;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+.App .category .card {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 2rem;
+  color: white;
+  position: relative;
+  -webkit-box-shadow: 0.5rem 0.5rem 0.9rem 0.3rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0.5rem 0.5rem 0.9rem 0.3rem rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  cursor: pointer;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+
+.App .category .card h1 {
+  text-transform: uppercase;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  font-size: calc(1rem + 1vw);
+  background-color: white;
+  color: black;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 1.5rem 1rem;
+}
+
+.App .category .card img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.App .category .card:hover {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+.App .category .header {
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.App .category .header svg {
+  width: 3rem;
+  height: 3rem;
+}
+
+.App .category .column-one {
+  width: 100%;
+  height: 100%;
+}
+
+.App .category .column-one .body {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  gap: 2rem;
+      grid-template-areas: "card-one card-one" "card-two card-three" "card-four card-four" "card-five card-six";
+}
+
+.App .category .column-one .body .small h1 {
+  font-size: calc(0.8rem + 1vw);
+  text-align: center;
+}
+
+.App .category .column-one .body .card-one {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: card-one;
+  aspect-ratio: 16/10;
+}
+
+.App .category .column-one .body .card-two {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: card-two;
+  aspect-ratio: 1/1;
+}
+
+.App .category .column-one .body .card-three {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: card-three;
+  aspect-ratio: 1/1;
+}
+
+.App .category .column-one .body .card-four {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: card-four;
+  aspect-ratio: 16/10;
+}
+
+.App .category .column-one .body .card-five {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: card-five;
+  aspect-ratio: 1/1;
+}
+
+.App .category .column-one .body .card-six {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: card-six;
+  aspect-ratio: 1/1;
+}
+
+.App .category .column-two {
+  width: 100%;
+  height: 100%;
+}
+
+.App .category .column-two .body {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  gap: 2rem;
+      grid-template-areas: "card-one card-two" "card-three card-three" "card-four card-five" "card-six card-six";
+}
+
+.App .category .column-two .body .small h1 {
+  font-size: calc(0.8rem + 1vw);
+  text-align: center;
+}
+
+.App .category .column-two .body .big h1 {
+  padding-left: 2rem;
+}
+
+.App .category .column-two .body .card-one {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: card-one;
+  aspect-ratio: 1/1;
+}
+
+.App .category .column-two .body .card-two {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: card-two;
+  aspect-ratio: 1/1;
+}
+
+.App .category .column-two .body .card-three {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: card-three;
+  aspect-ratio: 16/10;
+}
+
+.App .category .column-two .body .card-four {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: card-four;
+  aspect-ratio: 1/1;
+}
+
+.App .category .column-two .body .card-five {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: card-five;
+  aspect-ratio: 1/1;
+}
+
+.App .category .column-two .body .card-six {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: card-six;
+  aspect-ratio: 16/10;
+}
+
+.App .new-estates {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  padding: 3rem 2rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  min-height: 100vh;
+}
+
+.App .new-estates .section-header {
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.App .new-estates .section-header h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1rem;
+  font-size: 1.8rem;
+}
+
+.App .new-estates .section-header h1 span {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  background-color: black;
+  padding: 0.3rem 1rem;
+  border-radius: 0.3rem;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.App .new-estates .section-header h1::before {
+  content: "";
+  width: 100%;
+  background-color: rebeccapurple;
+  border: 0.1rem black solid;
+}
+
+.App .new-estates .section-header h1::after {
+  content: "";
+  width: 100%;
+  background-color: rebeccapurple;
+  border: 0.1rem black solid;
+}
+
+.App .new-estates .section-body {
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3rem;
+}
+
+.App .new-estates .section-body .card {
+  width: 100%;
+  height: calc(100vh - 12rem);
+  position: relative;
+}
+
+.App .new-estates .section-body .card .card-image {
+  width: 100%;
+  height: 100%;
+}
+
+.App .new-estates .section-body .card .card-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0.5rem 0.5rem 1rem 0.1rem rgba(0, 0, 0, 0.589);
+          box-shadow: 0.5rem 0.5rem 1rem 0.1rem rgba(0, 0, 0, 0.589);
+}
+
+.App .new-estates .section-body .card .card-status {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  background-color: #0084ff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 0.7rem;
+  padding: 0.3rem 1.5rem;
+}
+
+.App .new-estates .section-body .card .card-status h1 {
+  font-size: 1.5rem;
+  color: white;
+  padding: 0.5rem;
+}
+
+.App .new-estates .section-body .card .card-status svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.App .new-estates .section-body .card .card-status svg path {
+  fill: white;
+}
+
+.App .new-estates .section-body .card .card-body {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  left: 0;
+  right: 0;
+  bottom: 3rem;
+  color: white;
+  background-color: #0084ffb7;
+  margin: 0 1rem;
+  border-radius: 1rem;
+  -webkit-box-shadow: inset 0rem 0rem 1rem 0.1rem rgba(255, 255, 255, 0.308);
+          box-shadow: inset 0rem 0rem 1rem 0.1rem rgba(255, 255, 255, 0.308);
+}
+
+.App .new-estates .section-body .card .card-body .accordion {
+  padding: 0rem !important;
+  margin: 0rem !important;
+}
+
+.App .new-estates .section-body .card .card-body .accordion .accordion-item {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-header .accordion-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-header .accordion-button .container .accordion-price {
+  font-size: 2rem;
+}
+
+.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-header .accordion-button .container .accordion-name {
+  font-size: 0.9rem;
+  color: white;
+}
+
+.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-header .accordion-button .container .accordion-address {
+  font-size: 0.9rem;
+}
+
+.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-body {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+}
+
+.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-body .accordion-options {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-body .accordion-options .option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.3rem;
+}
+
+.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-body .accordion-options .option svg {
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-body .accordion-options .option svg path {
+  fill: white;
+}
+
+.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-body .accordion-options .option p {
+  font-size: 0.9rem;
+  color: white;
+}
+
+.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-body button {
+  -ms-flex-item-align: center;
+      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.5rem;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 300;
+}
+
+.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-body button svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-body button svg path {
+  fill: black;
+}
+
+.App .search-explore {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  min-height: 100vh;
+}
+
+.App .search-explore .section-header {
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.App .search-explore .section-header h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1rem;
+  font-size: 1.8rem;
+}
+
+.App .search-explore .section-header h1 span {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  background-color: black;
+  padding: 0.3rem 1rem;
+  border-radius: 0.3rem;
+  color: white;
+  text-align: center;
+  font-size: calc(1rem + 1vw);
+}
+
+.App .search-explore .section-header h1::before {
+  content: "";
+  width: 100%;
+  background-color: rebeccapurple;
+  border: 0.1rem black solid;
+}
+
+.App .search-explore .section-header h1::after {
+  content: "";
+  width: 100%;
+  background-color: rebeccapurple;
+  border: 0.1rem black solid;
+}
+
+.App .search-explore .section-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.App .search-explore .section-body .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #d2dce7;
+  gap: 4rem;
+  width: 100%;
+}
+
+.App .search-explore .section-body .card .card-row {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.App .search-explore .section-body .card .card-row .card-parallax .parallax {
+  position: relative !important;
+  height: 80vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: "Barlow Condensed";
+}
+
+.App .search-explore .section-body .card .card-row .card-parallax .parallax .parallax-background {
+  width: 100vw;
+}
+
+.App .search-explore .section-body .card .card-row .card-parallax .parallax .parallax-background img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.App .search-explore .section-body .card .card-row .card-parallax .parallax .react-parallax-content {
+  width: 100%;
+}
+
+.App .search-explore .section-body .card .card-row .card-parallax .parallax .react-parallax-content .parallax-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.App .search-explore .section-body .card .card-row .card-parallax .parallax .react-parallax-content .parallax-body .left {
+  width: 100%;
+  margin-top: calc(1rem + 10vh);
+  max-width: 20rem;
+  color: black;
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: white;
+}
+
+.App .search-explore .section-body .card .card-row .card-parallax .parallax .react-parallax-content .parallax-body .left .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-parallax .parallax .react-parallax-content .parallax-body .right {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  right: 0;
+  bottom: 11vh;
+  right: 10vw;
+}
+
+.App .search-explore .section-body .card .card-row .card-parallax .parallax .react-parallax-content .parallax-body .right .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  background-color: white;
+  padding: 1rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-description {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(16rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  gap: 2rem;
+  padding-left: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .left .card-star {
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .left .card-star .star-header {
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: "Barlow Condensed";
+  padding-left: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.3rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .left .card-star .star-header svg {
+  width: 1.8rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .left .card-star .star-body svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .left .card-star .star-body svg path {
+  fill: gold;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .left .card-category {
+  color: black;
+  padding-right: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .left .card-category span {
+  all: unset;
+  min-width: 10ch;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  text-align: center;
+  background-color: #777777;
+  color: white;
+  border-radius: 0.3rem;
+  font-size: 1.2rem;
+  padding: 0.3rem 1.1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .left .card-charts {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .left .card-charts .chart-header {
+  color: black;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: "Barlow Condensed";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .left .card-charts .chart-header svg {
+  width: 1.7rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .left .card-charts .chart-body {
+  max-width: 30rem;
+  padding-right: 3rem;
+  width: 100%;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .right {
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  gap: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .right .card-agent {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 3rem 3rem;
+  background-color: #ebebf0;
+  border-radius: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .right .card-agent .card-agent-header {
+  width: 10rem;
+  height: 16rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .right .card-agent .card-agent-header .agent-image {
+  width: 100%;
+  height: 100%;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .right .card-agent .card-agent-header .agent-image img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .right .card-agent .card-agent-body {
+  width: 100%;
+  max-width: 24rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  max-height: 15rem;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .right .card-agent .card-agent-body .agent-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .right .card-agent .card-agent-body .agent-name h1 {
+  padding-top: 0.3rem;
+  font-size: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .right .card-agent .card-agent-body .agent-comment {
+  height: 100%;
+  overflow: auto;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .right .card-facilities {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 2em;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .right .card-facilities .card-facilities-header {
+  text-align: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .right .card-facilities .card-facilities-header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: "Barlow Condensed";
+  text-transform: uppercase;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .right .card-facilities .card-facilities-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .right .card-facilities .card-facilities-body .item {
+  width: 9rem;
+  height: 9rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  gap: 0.5rem;
+  background-color: whitesmoke;
+  border-radius: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .right .card-facilities .card-facilities-body .item svg {
+  width: 2.1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-description .right .card-map {
+  width: 100%;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments {
+  color: black;
+}
+
+.App .search-explore .section-body .card .card-row .card-gallery {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(16rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  place-items: center;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-gallery .header {
+  color: black;
+}
+
+.App .search-explore .section-body .card .card-row .card-gallery .card-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-gallery .card-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.4rem 0.1rem rgba(0, 0, 0, 0.5);
+          box-shadow: 0.3rem 0.3rem 0.4rem 0.1rem rgba(0, 0, 0, 0.5);
+}
+
+.App .search-explore .section-body .card .card-row .card-gallery .card-image-big {
+  width: 100%;
+  aspect-ratio: 1/1.1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.App .search-explore .section-body .card .card-row .card-gallery .card-image-big .plan img {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.App .search-explore .section-body .card .card-row .card-gallery .card-image-small {
+  aspect-ratio: 1/1;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-gallery .card-image-small img {
+  aspect-ratio: 1/1;
+}
+
+.App .search-explore .section-body .card .card-row .card-gallery .card-image-small .full {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+.App .search-explore .section-body .card .card-row .card-gallery .card-image-small .full img {
+  aspect-ratio: 16/9;
+}
+
+.App .search-explore .section-body .card .card-row .card-theme {
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-theme .card-theme-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 3rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-theme .card-theme-body .card-color-chart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-theme .card-theme-body .card-color-chart .card-color-chart-body {
+  width: 100%;
+  max-width: 18rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-theme .card-theme-body .card-color-boxs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  -ms-flex-preferred-size: 25rem;
+      flex-basis: 25rem;
+  gap: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-theme .card-theme-body .card-color-boxs .color-box-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.7rem;
+  width: 100%;
+}
+
+.App .search-explore .section-body .card .card-row .card-theme .card-theme-body .card-color-boxs .color-box-container .color-box-container-body {
+  width: 100%;
+  gap: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-theme .card-theme-body .card-color-boxs .color-box-container .color-box-container-body .color-box {
+  -ms-flex-preferred-size: 5rem;
+      flex-basis: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.7rem;
+  text-transform: uppercase;
+}
+
+.App .search-explore .section-body .card .card-row .card-theme .card-theme-body .card-color-boxs .color-box-container .color-box-container-body .color-box .color-box-body {
+  aspect-ratio: 1/1;
+  border-radius: 0.7rem;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.5);
+          box-shadow: 0.3rem 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.5);
+}
+
+.App .search-explore .section-body .card .card-row .card-theme .card-theme-body .card-color-boxs .color-box-container .color-box-container-body .color-box .color-box-header {
+  text-align: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-theme .card-theme-body .card-color-theme {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.5rem;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  -ms-flex-preferred-size: 24rem;
+      flex-basis: 24rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-theme .card-theme-body .card-color-theme .card-color-theme-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-map {
+  display: none;
+}
+
+.App .search-explore .section-body .card .card-row .card-high-lights {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3rem;
+  color: black;
+  border-radius: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-high-lights .high-lights-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-high-lights .high-lights-header h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #000000;
+  font-size: 2.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-high-lights .high-lights-body {
+  gap: 1.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-high-lights .high-lights-body .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #4a617f;
+  border-radius: 0.5rem;
+  gap: 0.5rem;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.3);
+          box-shadow: 0.3rem 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.3);
+}
+
+.App .search-explore .section-body .card .card-row .card-high-lights .high-lights-body .item .item-header {
+  color: #f5f5f5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  border-bottom: 0.1rem white solid;
+  padding-bottom: 0.3rem;
+  width: 100%;
+}
+
+.App .search-explore .section-body .card .card-row .card-high-lights .high-lights-body .item .item-header .content {
+  width: 100%;
+  text-align: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-high-lights .high-lights-body .item .item-header .svg svg path {
+  fill: #f5f5f5;
+}
+
+.App .search-explore .section-body .card .card-row .card-high-lights .high-lights-body .item .item-body {
+  color: #f5f5f5;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 3rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #f5f5f5;
+  border-radius: 1rem;
+  padding: 4rem 0;
+  width: 90%;
+  gap: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-ratings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  padding: 0 4rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-ratings .comments-ratings-header {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-ratings .comments-ratings-header h1 {
+  font-size: 1.4rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-ratings .comments-ratings-body {
+  all: unset;
+  display: -ms-grid;
+  display: grid;
+  gap: 1rem;
+  -ms-grid-columns: (minmax(14rem, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-ratings .comments-ratings-body svg {
+  all: unset;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-ratings .comments-ratings-body .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-ratings .comments-ratings-body .item .item-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.3rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-ratings .comments-ratings-body .item .item-header h1 {
+  font-size: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-ratings .comments-ratings-body .item .item-header svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-ratings .comments-ratings-body .item .item-body .line {
+  width: 100%;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-header {
+  padding: 0 4rem;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-header h1 {
+  font-size: 1.4rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper {
+  width: 100%;
+  height: 28rem;
+  padding: 0rem 3rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .navigation-prev {
+  top: 0;
+  bottom: 4rem;
+  left: 1rem;
+  position: absolute;
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  z-index: 2;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .navigation-prev svg {
+  background-color: #4a617f;
+  border-radius: 50%;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .navigation-prev svg path {
+  fill: white;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .navigation-next {
+  top: 0;
+  bottom: 4rem;
+  right: 1rem;
+  position: absolute;
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  z-index: 2;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .navigation-next svg {
+  background-color: #4a617f;
+  border-radius: 50%;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .navigation-next svg path {
+  fill: white;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .item {
+  width: 20rem;
+  height: 24rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0.2rem 0.2rem 0.3rem 0.1rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0.2rem 0.2rem 0.3rem 0.1rem rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+  gap: 1rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .item .item-header {
+  font-size: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  border-bottom: 0.1rem rgba(0, 0, 0, 0.05) solid;
+  padding-bottom: 0.7rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .item .item-header .header-left img {
+  width: 3.4rem;
+  height: 3.4rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.2rem 0.1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0.3rem 0.3rem 0.2rem 0.1rem rgba(0, 0, 0, 0.1);
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .item .item-header .header-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .item .item-header .header-right .item-author {
+  font-size: 1.1rem;
+  color: black;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .item .item-header .header-right .item-date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.7);
+  gap: 0.4rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .item .item-header .header-right .item-date span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.4rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .item .item-header .header-right .item-date span::before {
+  content: "⬤";
+  font-size: 0.5rem;
+  opacity: 0.6;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .item .item-header .header-right .item-rating {
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .item .item-body {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .item .item-body .content {
+  overflow: auto;
+  height: 9rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .item .item-body .content::-webkit-scrollbar-thumb {
+  border: 0.2rem transparent solid;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .item .item-body .content p {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .item .item-body .like {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .item .item-body .like .like-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .item .item-body .like .like-header svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-comments .comments-body .card-comments-content .content-body .swiper .item .item-body .like .line {
+  width: 100%;
+  width: initial;
+  height: initial;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3rem;
+  width: 90%;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-header {
+  text-align: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-header h1 {
+  color: #000000;
+  font-size: 2.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(18rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #f5f5f5;
+  border-radius: 1rem;
+  padding: 10%;
+  gap: 3rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-trends {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-trends .price-trends-header {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-trends .price-trends-header h1 {
+  font-size: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-trends .price-trends-body {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(14rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-trends .price-trends-body .column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+  padding: 2rem 10%;
+  background-color: rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0.2rem 0.2rem 0.3rem 0.1rem rgba(0, 0, 0, 0.268);
+          box-shadow: 0.2rem 0.2rem 0.3rem 0.1rem rgba(0, 0, 0, 0.268);
+  border-radius: 0.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-trends .price-trends-body .column .column-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-trends .price-trends-body .column .column-header svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-trends .price-trends-body .column .column-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-trends .price-trends-body .column .column-body div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-trends .price-trends-body .column .column-body div span {
+  width: 50%;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-trends .price-trends-body .column .column-body div small {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.4rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-trends .price-trends-body .column .column-body div small svg {
+  all: unset;
+  width: 1.3rem;
+  width: 1.3rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-trends .price-trends-body .column .column-body div small .above path {
+  fill: red;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-trends .price-trends-body .column .column-body div small .below {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-trends .price-trends-body .column .column-body div small .below path {
+  fill: green;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-trends .price-trends-body .column .column-body .progress {
+  background-color: transparent;
+  margin-top: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-trends .price-trends-body .column .column-body .progress .line {
+  all: unset;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-defference {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-defference .bottom-header {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-defference .bottom-header h1 {
+  font-size: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .left .price-defference .bottom-body {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0.2rem 0.2rem 0.3rem 0.1rem rgba(0, 0, 0, 0.268);
+          box-shadow: 0.2rem 0.2rem 0.3rem 0.1rem rgba(0, 0, 0, 0.268);
+  border-radius: 0.5rem;
+  padding: 3rem 2rem;
+  height: calc(20rem + 10vh);
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #f5f5f5;
+  border-radius: 1rem;
+  padding: 10%;
+  gap: 3rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .assessment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .assessment .assessment-header {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .assessment .assessment-header h1 {
+  font-size: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .assessment .assessment-body {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .assessment .assessment-body .row {
+  all: unset;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 0.1rem rgba(0, 0, 0, 0.1) solid;
+  padding: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .assessment .assessment-body .row:last-child {
+  border-bottom: none;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .assessment .assessment-body .row .row-header {
+  all: unset;
+  width: 50%;
+  font-size: 1.1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .assessment .assessment-body .row .row-body {
+  all: unset;
+  width: 50%;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .price-history {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .price-history .price-history-header {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .price-history .price-history-header h1 {
+  font-size: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .price-history .price-history-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 1rem;
+  gap: 2rem;
+  position: relative;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .price-history .price-history-body .swiper {
+  width: 100%;
+  height: 20rem;
+  position: initial !important;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .price-history .price-history-body .swiper .navigation-prev {
+  top: 0;
+  bottom: 4rem;
+  left: -8.5%;
+  position: absolute;
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  z-index: 2;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .price-history .price-history-body .swiper .navigation-prev svg {
+  background-color: #4a617f;
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .price-history .price-history-body .swiper .navigation-prev svg path {
+  fill: white;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .price-history .price-history-body .swiper .navigation-next {
+  top: 0;
+  bottom: 4rem;
+  right: -8.5%;
+  position: absolute;
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  z-index: 2;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .price-history .price-history-body .swiper .navigation-next svg {
+  background-color: #4a617f;
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .price-history .price-history-body .swiper .navigation-next svg path {
+  fill: white;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .price-history .price-history-body .swiper .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0 0.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .price-history .price-history-body .swiper .item .item-header {
+  font-size: 1rem;
+  background-color: white;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  border-radius: 0.5rem 0.5rem 0 0;
+  padding: 0.7rem 1rem;
+  background-color: #d2dce7;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .price-history .price-history-body .swiper .item .item-body {
+  height: 12rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  border-radius: 0 0.9rem 0.9rem 0.9rem;
+  -webkit-box-shadow: 0.2rem 0.2rem 0.3rem 0.1rem rgba(0, 0, 0, 0.268);
+          box-shadow: 0.2rem 0.2rem 0.3rem 0.1rem rgba(0, 0, 0, 0.268);
+  gap: 0.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .price-history .price-history-body .swiper .item .item-body .row {
+  all: unset;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .price-history .price-history-body .swiper .item .item-body .row .row-key {
+  all: unset;
+  font-size: 1.2rem;
+  text-align: start;
+}
+
+.App .search-explore .section-body .card .card-row .card-price-trends-assessment .price-trends-assessment-body .right .price-history .price-history-body .swiper .item .item-body .row .row-value {
+  all: unset;
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+  width: 90%;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-header {
+  text-align: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-header h1 {
+  color: #000000;
+  font-size: 2.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .left {
+  width: calc(25% - 1rem);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(12rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  background-color: #f5f5f5;
+  border-radius: 1rem;
+  padding: 2rem 2rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .left .logo {
+  padding: 1rem 0rem;
+  border-radius: 1rem 0rem 0rem 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .left .logo img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .left .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  max-width: 18rem;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .left .info .name {
+  width: 90%;
+  font-size: 1.7rem;
+  font-weight: bold;
+  border-bottom: 0.1rem rgba(0, 0, 0, 0.1) solid;
+  padding-bottom: 0.3rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .left .info .social-network {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background-color: white;
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .left .info .social-network small {
+  width: 100%;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .left .info .social-network svg {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .left .info .contacting {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+  gap: 0.3rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .left .info .contacting small {
+  width: 100%;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .left .info .contacting svg {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .left .description {
+  width: 100%;
+  grid-column: -1/1;
+  padding: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .left .account {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 0.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .left .account button {
+  all: unset;
+  background-color: #4a617f;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  color: white;
+  -webkit-box-shadow: 0.2rem 0.2rem 0.2rem 0.1rem rgba(0, 0, 0, 0.3);
+          box-shadow: 0.2rem 0.2rem 0.2rem 0.1rem rgba(0, 0, 0, 0.3);
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right {
+  width: 75%;
+  background-color: #f5f5f5;
+  padding: 4rem 2rem;
+  border-radius: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row .row-header {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  padding: 0 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row .row-header h1 {
+  font-size: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row .row-body .swiper {
+  width: 100%;
+  position: relative !important;
+  padding: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row .row-body .swiper .item {
+  background-color: white;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.2rem 0.1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0.3rem 0.3rem 0.2rem 0.1rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.7rem;
+  height: 90%;
+  margin-bottom: 4rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row .row-body .swiper .item .item-header {
+  width: 100%;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row .row-body .swiper .item .item-header img {
+  aspect-ratio: 16/12;
+  width: 100%;
+  border-radius: 0.5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row .row-body .swiper .item .item-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1.5rem 3rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row .row-body .swiper .item .item-body .price {
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row .row-body .swiper .item .item-body .name {
+  font-size: 0.9rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row .row-body .swiper .item .item-body .address {
+  font-size: 0.9rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row .row-body .swiper .item .item-body .facilities {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row .row-body .swiper .item .item-body .facilities .option {
+  background-color: rgba(0, 0, 0, 0.07);
+  border-radius: 0.3rem;
+  padding: 0.2rem 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row .row-body .swiper .item .item-body .facilities .option svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row .row-body .swiper .item .item-body .facilities .option span {
+  font-size: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row .row-body .swiper .navigation-prev {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  left: 0rem;
+  top: 0;
+  bottom: 0rem;
+  z-index: 1;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row .row-body .swiper .navigation-prev svg {
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  background-color: #e2e2e2;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row .row-body .swiper .navigation-prev svg path {
+  fill: black;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row .row-body .swiper .navigation-next {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  right: 0rem;
+  top: 0;
+  bottom: 0rem;
+  z-index: 1;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row .row-body .swiper .navigation-next svg {
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  background-color: #e2e2e2;
+}
+
+.App .search-explore .section-body .card .card-row .card-property-provider .provider-body .right .row .row-body .swiper .navigation-next svg path {
+  fill: black;
+}
+
+.App .search-explore .section-body .card .card-row .card-information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-information .accordion * {
+  border: none;
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.App .search-explore .section-body .card .card-row .card-information .accordion .accordion-item {
+  background-color: transparent;
+}
+
+.App .search-explore .section-body .card .card-row .card-information .accordion .accordion-item .accordion-header .accordion-button {
+  background-color: transparent;
+  border: none !important;
+  color: white;
+}
+
+.App .search-explore .section-body .card .card-row .card-information .accordion .accordion-item .accordion-header .accordion-button:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.App .search-explore .section-body .card .card-row .card-information .accordion .accordion-item .accordion-header .accordion-button:hover {
+  -webkit-transform: initial !important;
+          transform: initial !important;
+}
+
+.App .search-explore .section-body .card .card-row .card-information .accordion .accordion-item .accordion-header button::after {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 6L10 11L15 6L17 7L10 14L3 7L5 6Z' fill='black'/%3E%3C/svg%3E%0A");
+  background-size: cover;
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+  width: 2rem;
+  height: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-information .information-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-information .information-header h3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-information .information-body {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(20rem, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  place-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-information .information-body .information-row {
+  width: 100%;
+  max-width: 20rem;
+  border-radius: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #4a617f;
+}
+
+.App .search-explore .section-body .card .card-row .card-information .information-body .information-row .row-header {
+  background-color: #4a617f;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0rem 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.5);
+          box-shadow: 0rem 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.5);
+}
+
+.App .search-explore .section-body .card .card-row .card-information .information-body .information-row .row-header svg {
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-right: 0.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-information .information-body .information-row .row-header svg path {
+  fill: #ffffff;
+}
+
+.App .search-explore .section-body .card .card-row .card-information .information-body .information-row .row-body {
+  margin-top: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2rem;
+  gap: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 1rem;
+  height: 24rem;
+  overflow: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.App .search-explore .section-body .card .card-row .card-information .information-body .information-row .row-body .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5rem;
+  border-bottom: 0.1rem rgba(160, 160, 160, 0.342) solid;
+  padding-bottom: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-information .information-body .information-row .row-body .item:last-child {
+  border-bottom: none;
+  padding-bottom: 0rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-information .information-body .information-row .row-body .item .item-header {
+  color: black;
+  font-size: 1.3rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-information .information-body .information-row .row-body .item .item-body {
+  padding: 0 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-information .information-body .information-row .row-body .item .item-body ul {
+  display: -ms-grid;
+  display: grid;
+  list-style: disc;
+  -ms-grid-columns: (minmax(16rem, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+.App .search-explore .section-body .card .card-row .card-information .information-body .information-row .row-body .item .item-body ul li {
+  opacity: 0.85;
+  padding-right: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing {
+  color: black;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(16rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  background-color: #d2dce7;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .left {
+  gap: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  padding: 2rem 0 0 0;
+  background-color: #4a617f;
+  color: white;
+  border-radius: 2rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .left h1 {
+  color: white;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .left p {
+  font-size: 1.1rem;
+  border-radius: 1rem;
+  max-width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  color: white;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .left p span {
+  font-size: 1.5rem;
+  padding: 0.3rem 1rem;
+  border-radius: 0.3rem;
+  background-color: rgba(180, 180, 180, 0.3);
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .left img {
+  width: 100%;
+  margin-top: 2rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right {
+  background-color: #eaeaea;
+  border-radius: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2rem 0rem;
+  gap: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider {
+  width: 100%;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .slide .slide-header {
+  font-size: 2rem;
+  color: #4a617f;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .slide .slide-header #error-icon path {
+  fill: red;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .slide .slide-header svg {
+  margin-left: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .slide .slide-row {
+  width: 100%;
+  padding: 0 10%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(16rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .slide .slide-row label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .slide .slide-row label h1 {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .slide .slide-row label h3 {
+  font-size: 1.1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 1rem;
+  gap: 0.5rem;
+  color: #4a617f;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .slide .slide-row label h3 svg {
+  width: 1.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .slide .slide-row label .input-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  gap: 1rem;
+  padding: 0 1rem;
+  border-radius: 0.4rem;
+  background-color: white;
+  -webkit-transition-duration: 1rem;
+          transition-duration: 1rem;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0.3rem 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.2);
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .slide .slide-row label .input-container small {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.3rem;
+  padding: 0.7rem 0.5rem;
+  font-size: 0.9rem;
+  background-color: rgba(255, 0, 0, 0.1);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .slide .slide-row label .input-container small svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .slide .slide-row label .input-container .text-input {
+  all: unset;
+  width: 100%;
+  padding: calc(0.5rem + 0.5vw) 0rem;
+  text-transform: capitalize;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .slide .slide-row label .input-container .radio-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+  text-transform: capitalize;
+  height: 3.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .slide .slide-row label .input-container .radio-input h1 {
+  font-size: 1.2rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .slide .slide-row label .input-container .date-input {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .slide .slide-row label .input-container .date-input input {
+  border: none;
+  width: 100%;
+  padding: 0.5rem 2rem;
+  border-radius: 0.3rem;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0.3rem 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.2);
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .slide .slide-row label .input-container .date-input small {
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .slide .slide-row label .input-container .time-input {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .slide .slide-row label .input-container .time-input select {
+  border: none;
+  width: 100%;
+  padding: 0.5rem 2rem;
+  border-radius: 0.3rem;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0.3rem 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.2);
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .slide .slide-row label .input-container .time-input small {
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .successful {
+  position: relative;
+  background-color: rebeccapurple;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-body .form-slider .successful img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-button {
+  width: 100%;
+  padding: 0 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  gap: 0.5rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-button button {
+  all: unset;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.3rem;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: #4a617f;
+  width: 12ch;
+  color: white;
+  border-radius: 0.3rem;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.3);
+          box-shadow: 0.3rem 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.3);
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-button button svg {
+  width: 1.3rem;
+}
+
+.App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-button button svg path {
+  fill: white;
+}
+
+.App .agents {
+  background: url("/src/js/images/compressor/12.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: none;
+}
+
+.App .agents .agents-container {
+  padding-top: 4rem;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App .agents .agents-container .agent {
+  height: 100%;
+  background-color: white;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  border-radius: 1rem;
+  margin-top: 4rem;
+  padding: 2rem;
+  position: relative;
+  background-color: white;
+  -webkit-box-shadow: 0 0 1rem 0.1rem rgba(0, 0, 0, 0.453);
+          box-shadow: 0 0 1rem 0.1rem rgba(0, 0, 0, 0.453);
+}
+
+.App .agents .agents-container .agent .agent-image {
+  position: absolute;
+  top: -4rem;
+  left: 2rem;
+  width: 100%;
+}
+
+.App .agents .agents-container .agent .agent-image img {
+  width: 40%;
+  height: 40%;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.343);
+          box-shadow: 0.3rem 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.343);
+}
+
+.App .agents .agents-container .agent .agent-info {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.App .agents .agents-container .agent .agent-info svg {
+  width: 2rem;
+  height: 2rem;
+  padding: 0 !important;
+}
+
+.App .agents .agents-container .agent .agent-info .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+.App .agents .agents-container .agent .agent-info .social-media {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 0.5rem;
+  padding-right: 1rem;
+}
+
+.App .agents .agents-container .agent .agent-info .info {
+  gap: 0.1rem;
+  margin-top: 2rem;
+}
+
+.App .agents .agents-container .agent .agent-info .info h1 {
+  font-size: 2rem;
+}
+
+.App .agents .agents-container .agent .agent-info .info h2 {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.App .agents .agents-container .agent .agent-info .star {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding-left: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.App .agents .agents-container .agent .agent-info .star svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.App .agents .agents-container .agent .agent-info .star svg path {
+  fill: #ffc531;
+}
+
+.App .agents .agents-container .agent .agent-info .comment {
+  max-height: 14rem;
+  margin-top: 1rem;
+  overflow: auto;
+  font-size: 1.1rem;
+}
+
+.App .background {
+  display: none;
+}
+
+.App .background .slide {
+  height: 40rem;
+  position: relative;
+}
+
+.App .background .slide .slide-image {
+  display: block;
+  height: 100%;
+}
+
+.App .background .slide .slide-image img {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.App .background .slide .slide-body {
+  position: absolute;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(16rem, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  gap: 1rem;
+}
+
+.App .background .slide .slide-body .left {
+  background-color: #0084ff8e;
+  border-radius: 1rem;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2rem;
+  gap: 0.3rem;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  -webkit-box-shadow: 0.3rem 0.3rem 1rem 0.1rem rgba(0, 0, 0, 0.348);
+          box-shadow: 0.3rem 0.3rem 1rem 0.1rem rgba(0, 0, 0, 0.348);
+}
+
+.App .background .slide .slide-body .left .slide-price {
+  font-size: 2rem;
+}
+
+.App .background .slide .slide-body .left .slide-name {
+  font-size: 0.8rem;
+}
+
+.App .background .slide .slide-body .left .slide-address {
+  font-size: 0.8rem;
+}
+
+.App .background .slide .slide-body .left .slide-buttons {
+  background-color: rgba(0, 0, 0, 0.178);
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
+.App .background .slide .slide-body .left .slide-buttons button {
+  all: unset;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.App .background .slide .slide-body .right {
+  background-color: rgba(0, 0, 0, 0.719);
+  -webkit-box-shadow: 0.3rem 0.3rem 1rem 0.1rem rgba(0, 0, 0, 0.285);
+          box-shadow: 0.3rem 0.3rem 1rem 0.1rem rgba(0, 0, 0, 0.285);
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+.App .background .slide .slide-body .right .slide-facilities {
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  color: white !important;
+  border-radius: 1rem;
+}
+
+.App .background .slide .slide-body .right .slide-facilities .option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.5rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+
+.App .background .slide .slide-body .right .slide-facilities .option p {
+  font-size: 0.9rem;
+}
+
+.App .background .slide .slide-body .right .slide-facilities .option svg {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.App .section-one {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: none !important;
+}
+
+.App .section-one .glass {
+  background-image: url("/src/js/images/orginal/8.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  aspect-ratio: 16/8;
+}
+
+.App .section-one .glass .test {
+  color: black;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  max-width: 500px;
+  padding: 2rem;
+  margin: 2rem;
+  background-color: rgba(255, 255, 255, 0.277);
+  border-radius: 1rem;
+  -webkit-backdrop-filter: blur(30px);
+          backdrop-filter: blur(30px);
+  -webkit-box-shadow: 0.3rem 0.3rem 1rem 0.1rem rgba(0, 0, 0, 0.302);
+          box-shadow: 0.3rem 0.3rem 1rem 0.1rem rgba(0, 0, 0, 0.302);
+}
+
+.App .section-one .column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.App .section-one .column .card {
+  all: unset;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App .section-one .column .card .card-body {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App .section-one .column .card .card-body .accordion {
+  max-width: 18rem;
+  width: 100%;
+  height: 100%;
+}
+
+.App .section-one .column .card .card-body .accordion .accordion-item {
+  width: 100%;
+}
+
+.App .section-one .column .card .card-body .accordion .accordion-item .accordion-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  background-color: #5192ced8;
+  border-radius: 1rem;
+}
+
+.App .section-one .column .card .card-body .accordion .accordion-item .accordion-header .accordion-price {
+  font-size: 2rem;
+}
+
+.App .section-one .column .card .card-body .accordion .accordion-item .accordion-header .accordion-name {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.App .section-one .column .card .card-body .accordion .accordion-item .accordion-header .accordion-address {
+  font-size: 0.9rem;
+}
+
+.App .section-one .column .card .card-body .accordion .accordion-item .accordion-header button::after {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 6L10 11L15 6L17 7L10 14L3 7L5 6Z' fill='black'/%3E%3C/svg%3E%0A");
+  background-size: cover;
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+  width: 2rem;
+  height: 2rem;
+}
+
+.App .section-one .column .card .card-body .accordion .accordion-item .accordion-body {
+  background-color: rgba(0, 0, 0, 0.719);
+  border-radius: 1rem;
+  margin-top: 0.7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App .section-one .column .card .card-body .accordion .accordion-item .accordion-body .accordion-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.7rem;
+}
+
+.App .section-one .column .card .card-body .accordion .accordion-item .accordion-body .accordion-options .option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+.App .section-one .column .card .card-body .accordion .accordion-item .accordion-body .accordion-options .option p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 0.9rem;
+}
+
+.App .section-one .column .card .card-body .accordion .accordion-item .accordion-body .accordion-options .option svg {
+  width: 1.7rem;
+}
+
+.App .section-one .column .card .card-body .accordion .accordion-item .accordion-body button {
+  background-color: white;
+  width: 18ch;
+  text-align: center;
+  padding: 0.6rem 0rem;
+  border-radius: 0.5rem;
+  color: black;
+}
+
+.App .section-one .column .card .card-image {
+  height: 100%;
+}
+
+.App .section-one .column .card .card-image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+.App .section-one .column-one {
+  grid-area: column-one;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.App .section-one .column-one img {
+  aspect-ratio: 1/1;
+}
+
+.App .section-one .column-two {
+  grid-area: column-two;
+}
+
+.App .section-one .column-two img {
+  aspect-ratio: 1/1;
+}
+
+.App .section-one .column-three {
+  grid-area: column-three;
+}
+
+.App .section-one .column-three img {
+  aspect-ratio: 1/1;
+}
+
+.App .section-one .column-four {
+  grid-area: column-four;
+}
+
+.App .section-one .column-four img {
+  aspect-ratio: 1/1;
+}
+
+.App .section-one .column-five {
+  grid-area: column-five;
+}
+
+.App .section-one .column-five img {
+  aspect-ratio: 1/1;
+}
+
+.App .section-one .column-six {
+  grid-area: column-six;
+}
+
+.App .section-one .column-six img {
+  aspect-ratio: 1/1;
+}
+
+.App .section-one .column-seven {
+  grid-area: column-seven;
+}
+
+.App .section-one .column-seven img {
+  aspect-ratio: 1/1;
+}
+
+@media only screen and (max-width: 1100px) {
+  header .header-list {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  header .rent,
+  header .buy,
+  header .mortgage {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  header .account {
+    display: none !important;
+  }
+}
+/*# sourceMappingURL=App.css.map */
