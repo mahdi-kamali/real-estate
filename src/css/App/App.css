@@ -139,6 +139,14 @@ body .flex-responsive-14rem .item {
   width: 14rem;
 }
 
+html .page-grid-style-responsive,
+body .page-grid-style-responsive {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 25rem 1fr;
+      grid-template-columns: 25rem 1fr;
+}
+
 html ::-webkit-scrollbar,
 body ::-webkit-scrollbar {
   background-color: transparent;
@@ -157,8 +165,18 @@ body ::-webkit-scrollbar-thumb {
 }
 
 .App {
-  height: 100vh;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #d2dce7;
 }
 
 .App * {
@@ -166,6 +184,7 @@ body ::-webkit-scrollbar-thumb {
           box-sizing: border-box;
   padding: 0;
   margin: 0;
+  line-height: normal;
 }
 
 .App .slick-list {
@@ -174,7 +193,7 @@ body ::-webkit-scrollbar-thumb {
 }
 
 .App header {
-  position: absolute;
+  position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -616,7 +635,7 @@ body ::-webkit-scrollbar-thumb {
 
 .App section {
   height: 100vh;
-  width: 100%;
+  width: 90%;
 }
 
 .App .card {
@@ -625,19 +644,101 @@ body ::-webkit-scrollbar-thumb {
 
 .App .intro {
   color: white;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 0.2fr 0.8fr;
-      grid-template-columns: 0.2fr 0.8fr;
+  width: 90%;
   padding-top: 5rem;
 }
 
 .App .intro .intro-header {
-  background-color: rebeccapurple;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #4a617f;
+  padding: 3rem;
+  gap: 1rem;
+}
+
+.App .intro .intro-header .intro-text {
+  font-size: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+.App .intro .intro-header .intro-text * {
+  color: white;
+}
+
+.App .intro .intro-header .intro-text h1 {
+  font-size: 2rem;
+  background-color: white;
+  color: #4a617f;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border-radius: 0.2rem;
+  padding: 0.3rem 1rem;
+}
+
+.App .intro .intro-header .intro-text span {
+  font-size: 1rem;
+}
+
+.App .intro .intro-header .intro-definition {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5rem;
+  padding-left: 1rem;
+  text-transform: uppercase;
+}
+
+.App .intro .intro-header .intro-definition h1 {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-size: 1.3rem;
+  color: white;
+  border-bottom: 0.1rem solid white;
+  padding-bottom: 0.3rem;
+}
+
+.App .intro .intro-header .intro-definition ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  list-style: disc;
+  padding-left: 1rem;
+}
+
+.App .intro .intro-header .intro-definition ul li {
+  padding: 0.5rem 0;
+  color: white;
 }
 
 .App .intro .intro-body {
-  height: 50%;
+  height: 100%;
+  position: relative;
+  color: black;
 }
 
 .App .intro .intro-body .intro-image {
@@ -653,232 +754,224 @@ body ::-webkit-scrollbar-thumb {
      object-position: center;
 }
 
-.App .category {
-  scroll-snap-align: initial !important;
-  display: -ms-grid;
-  display: grid;
-  gap: 2rem;
-  -ms-grid-columns: (minmax(24rem, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-  min-height: 100vh;
-  scroll-snap-align: normal !important;
-  place-items: center;
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9);
-  -webkit-transform-origin: center;
-          transform-origin: center;
-}
-
-.App .category .card {
-  width: 100%;
+.App .intro .intro-body .intro-search {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  gap: 2rem;
+  position: absolute;
+  top: 10%;
+  left: 2.5%;
+  bottom: 10%;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.App .intro .intro-body .intro-search .search-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.App .intro .intro-body .intro-search .search-bar .intro-search-bar-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: black;
+}
+
+.App .intro .intro-body .intro-search .search-bar .intro-search-bar-header h1 {
+  font-size: 3rem;
+  text-transform: capitalize;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.App .intro .intro-body .intro-search .search-bar .intro-search-bar-header span {
+  font-size: 1.3rem;
+  opacity: 0.7;
+  text-transform: capitalize;
+}
+
+.App .intro .intro-body .intro-search .search-bar .intro-search-bar-body {
+  max-width: 19rem;
+  border: 0.1rem rgba(0, 0, 0, 0.5) solid;
+  border-radius: 50vw;
+  padding: 0.5rem 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 2rem;
-  color: white;
-  position: relative;
-  -webkit-box-shadow: 0.5rem 0.5rem 0.9rem 0.3rem rgba(0, 0, 0, 0.2);
-          box-shadow: 0.5rem 0.5rem 0.9rem 0.3rem rgba(0, 0, 0, 0.2);
-  border-radius: 1rem;
-  cursor: pointer;
-  -webkit-transition-duration: 0.5s;
-          transition-duration: 0.5s;
+  gap: 0.5rem;
 }
 
-.App .category .card h1 {
-  text-transform: uppercase;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  font-size: calc(1rem + 1vw);
-  background-color: white;
-  color: black;
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
-  padding: 1.5rem 1rem;
+.App .intro .intro-body .intro-search .search-bar .intro-search-bar-body svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1.5rem;
 }
 
-.App .category .card img {
+.App .intro .intro-body .intro-search .search-bar .intro-search-bar-body svg path {
+  fill: black;
+}
+
+.App .intro .intro-body .intro-search .search-bar .intro-search-bar-body input {
+  all: unset;
   width: 100%;
+  color: rgba(0, 0, 0, 0.7);
   height: 100%;
+  text-transform: capitalize;
+}
+
+.App .intro .intro-body .intro-search .search-items {
+  width: 100%;
+  max-width: 20rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+.App .intro .intro-body .intro-search .search-items .search-most-popular {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+.App .intro .intro-body .intro-search .search-items .search-most-popular .most-popular-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.7rem;
+}
+
+.App .intro .intro-body .intro-search .search-items .search-recently-added {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+.App .intro .intro-body .intro-search .search-items .search-recently-added .search-recently-added-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.7rem;
+}
+
+.App .intro .intro-body .intro-search .search-items .item {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0.2fr 0.8fr;
+      grid-template-columns: 0.2fr 0.8fr;
+  gap: 1rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(30px);
+          backdrop-filter: blur(30px);
+  border-left: 0.2rem #4a617f solid;
+  border-radius: 0.4rem;
+  -webkit-box-shadow: 0.2rem 0.2rem 0.2rem 0.1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0.2rem 0.2rem 0.2rem 0.1rem rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.App .intro .intro-body .intro-search .search-items .item .item-header {
+  width: 100%;
+}
+
+.App .intro .intro-body .intro-search .search-items .item .item-header img {
+  aspect-ratio: 1/1;
+  width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  border-radius: 0.3rem;
 }
 
-.App .category .card:hover {
-  -webkit-transform: scale(0.95);
-          transform: scale(0.95);
-}
-
-.App .category .header {
-  font-size: 2rem;
-  text-transform: uppercase;
-  font-size: 1.5rem;
+.App .intro .intro-body .intro-search .search-items .item .item-body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.App .intro .intro-body .communication {
+  position: absolute;
+  bottom: 0;
+  right: 5%;
+  padding: 1.4rem 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: white;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 1rem;
-  padding: 2rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.5rem;
+  border-radius: 1rem 1rem 0 0;
 }
 
-.App .category .header svg {
-  width: 3rem;
-  height: 3rem;
+.App .intro .intro-body .communication svg {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
-.App .category .column-one {
-  width: 100%;
-  height: 100%;
-}
-
-.App .category .column-one .body {
-  width: 100%;
-  display: -ms-grid;
-  display: grid;
-  gap: 2rem;
-      grid-template-areas: "card-one card-one" "card-two card-three" "card-four card-four" "card-five card-six";
-}
-
-.App .category .column-one .body .small h1 {
-  font-size: calc(0.8rem + 1vw);
-  text-align: center;
-}
-
-.App .category .column-one .body .card-one {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: card-one;
-  aspect-ratio: 16/10;
-}
-
-.App .category .column-one .body .card-two {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
-  grid-area: card-two;
-  aspect-ratio: 1/1;
-}
-
-.App .category .column-one .body .card-three {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: card-three;
-  aspect-ratio: 1/1;
-}
-
-.App .category .column-one .body .card-four {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-  grid-area: card-four;
-  aspect-ratio: 16/10;
-}
-
-.App .category .column-one .body .card-five {
-  -ms-grid-row: 3;
-  -ms-grid-column: 2;
-  grid-area: card-five;
-  aspect-ratio: 1/1;
-}
-
-.App .category .column-one .body .card-six {
-  -ms-grid-row: 4;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: card-six;
-  aspect-ratio: 1/1;
-}
-
-.App .category .column-two {
-  width: 100%;
-  height: 100%;
-}
-
-.App .category .column-two .body {
-  width: 100%;
-  display: -ms-grid;
-  display: grid;
-  gap: 2rem;
-      grid-template-areas: "card-one card-two" "card-three card-three" "card-four card-five" "card-six card-six";
-}
-
-.App .category .column-two .body .small h1 {
-  font-size: calc(0.8rem + 1vw);
-  text-align: center;
-}
-
-.App .category .column-two .body .big h1 {
-  padding-left: 2rem;
-}
-
-.App .category .column-two .body .card-one {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: card-one;
-  aspect-ratio: 1/1;
-}
-
-.App .category .column-two .body .card-two {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
-  grid-area: card-two;
-  aspect-ratio: 1/1;
-}
-
-.App .category .column-two .body .card-three {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: card-three;
-  aspect-ratio: 16/10;
-}
-
-.App .category .column-two .body .card-four {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-  grid-area: card-four;
-  aspect-ratio: 1/1;
-}
-
-.App .category .column-two .body .card-five {
-  -ms-grid-row: 3;
-  -ms-grid-column: 2;
-  grid-area: card-five;
-  aspect-ratio: 1/1;
-}
-
-.App .category .column-two .body .card-six {
-  -ms-grid-row: 4;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: card-six;
-  aspect-ratio: 16/10;
-}
-
-.App .new-estates {
+.App .categories {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -887,20 +980,18 @@ body ::-webkit-scrollbar-thumb {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 2rem;
-  width: 100%;
-  padding: 3rem 2rem;
+  margin-top: 3rem;
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
-  min-height: 100vh;
 }
 
-.App .new-estates .section-header {
+.App .categories .categories-header {
   padding-bottom: 0.5rem;
   text-transform: uppercase;
 }
 
-.App .new-estates .section-header h1 {
+.App .categories .categories-header h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -918,7 +1009,7 @@ body ::-webkit-scrollbar-thumb {
   font-size: 1.8rem;
 }
 
-.App .new-estates .section-header h1 span {
+.App .categories .categories-header h1 span {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -930,21 +1021,211 @@ body ::-webkit-scrollbar-thumb {
   font-size: 2rem;
 }
 
-.App .new-estates .section-header h1::before {
+.App .categories .categories-header h1::before {
   content: "";
   width: 100%;
   background-color: rebeccapurple;
   border: 0.1rem black solid;
 }
 
-.App .new-estates .section-header h1::after {
+.App .categories .categories-header h1::after {
   content: "";
   width: 100%;
   background-color: rebeccapurple;
   border: 0.1rem black solid;
 }
 
-.App .new-estates .section-body {
+.App .categories .categories-body {
+  display: -ms-grid;
+  display: grid;
+  gap: 1rem;
+      grid-template-areas: "cat-five cat-five cat-five cat-five cat-six cat-six" "cat-five cat-five cat-five cat-five cat-seven cat-seven" "cat-one cat-one cat-one cat-two cat-four cat-four" "cat-one cat-one cat-one cat-three cat-four cat-four";
+}
+
+.App .categories .cat {
+  text-transform: uppercase;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  direction: ltr;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.App .categories .cat:hover .cat-header {
+  height: 5rem;
+  opacity: 1;
+}
+
+.App .categories .cat .cat-header {
+  position: absolute;
+  left: 0rem;
+  bottom: 0rem;
+  right: 0;
+  height: 0rem;
+  background-color: white;
+  padding: 0rem 0.5rem;
+  padding-left: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all ease-out 0.35s;
+  transition: all ease-out 0.35s;
+  opacity: 0;
+}
+
+.App .categories .cat .cat-header h1 {
+  font-size: calc(1.5rem + 0.5vw);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+
+.App .categories .cat .cat-header::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.App .categories .cat .cat-body {
+  width: 100%;
+  height: 100%;
+}
+
+.App .categories .cat .cat-body img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.App .categories .cat-one {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: cat-one;
+}
+
+.App .categories .cat-two {
+  -ms-grid-row: 3;
+  -ms-grid-column: 4;
+  grid-area: cat-two;
+  aspect-ratio: 16/10;
+}
+
+.App .categories .cat-three {
+  -ms-grid-row: 4;
+  -ms-grid-column: 4;
+  grid-area: cat-three;
+  aspect-ratio: 16/10;
+}
+
+.App .categories .cat-four {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 2;
+  grid-area: cat-four;
+}
+
+.App .categories .cat-five {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: cat-five;
+}
+
+.App .categories .cat-six {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 2;
+  grid-area: cat-six;
+}
+
+.App .categories .cat-seven {
+  -ms-grid-row: 2;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 2;
+  grid-area: cat-seven;
+}
+
+.App .new-estates {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+  margin-top: 3rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.App .new-estates .new-estates-header {
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.App .new-estates .new-estates-header h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1rem;
+  font-size: 1.8rem;
+}
+
+.App .new-estates .new-estates-header h1 span {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  background-color: black;
+  padding: 0.3rem 1rem;
+  border-radius: 0.3rem;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.App .new-estates .new-estates-header h1::before {
+  content: "";
+  width: 100%;
+  background-color: rebeccapurple;
+  border: 0.1rem black solid;
+}
+
+.App .new-estates .new-estates-header h1::after {
+  content: "";
+  width: 100%;
+  background-color: rebeccapurple;
+  border: 0.1rem black solid;
+}
+
+.App .new-estates .new-estates-body {
   width: 100%;
   height: -webkit-max-content;
   height: -moz-max-content;
@@ -956,103 +1237,61 @@ body ::-webkit-scrollbar-thumb {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 3rem;
 }
 
-.App .new-estates .section-body .card {
+.App .new-estates .new-estates-body * {
+  color: white;
+}
+
+.App .new-estates .new-estates-body .mySwiper {
   width: 100%;
-  height: calc(100vh - 12rem);
-  position: relative;
 }
 
-.App .new-estates .section-body .card .card-image {
-  width: 100%;
-  height: 100%;
-}
-
-.App .new-estates .section-body .card .card-image img {
+.App .new-estates .new-estates-body .item img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 1rem;
-  -webkit-box-shadow: 0.5rem 0.5rem 1rem 0.1rem rgba(0, 0, 0, 0.589);
-          box-shadow: 0.5rem 0.5rem 1rem 0.1rem rgba(0, 0, 0, 0.589);
+  aspect-ratio: 16/10;
 }
 
-.App .new-estates .section-body .card .card-status {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  background-color: #0084ff;
+.App .new-estates .new-estates-body .item .item-body {
+  background-color: #4a617f;
+  padding: 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 0.7rem;
-  padding: 0.3rem 1.5rem;
-}
-
-.App .new-estates .section-body .card .card-status h1 {
-  font-size: 1.5rem;
-  color: white;
-  padding: 0.5rem;
-}
-
-.App .new-estates .section-body .card .card-status svg {
-  width: 2rem;
-  height: 2rem;
-}
-
-.App .new-estates .section-body .card .card-status svg path {
-  fill: white;
-}
-
-.App .new-estates .section-body .card .card-body {
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  left: 0;
-  right: 0;
-  bottom: 3rem;
-  color: white;
-  background-color: #0084ffb7;
-  margin: 0 1rem;
-  border-radius: 1rem;
-  -webkit-box-shadow: inset 0rem 0rem 1rem 0.1rem rgba(255, 255, 255, 0.308);
-          box-shadow: inset 0rem 0rem 1rem 0.1rem rgba(255, 255, 255, 0.308);
-}
-
-.App .new-estates .section-body .card .card-body .accordion {
-  padding: 0rem !important;
-  margin: 0rem !important;
-}
-
-.App .new-estates .section-body .card .card-body .accordion .accordion-item {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  font-size: 1.5rem;
+  overflow: auto;
 }
 
-.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-header .accordion-button {
+.App .new-estates .new-estates-body .item .item-body::-webkit-scrollbar-thumb {
+  background-color: #d2dce7;
+}
+
+.App .new-estates .new-estates-body .item .item-body .item-price {
+  font-size: calc(3rem);
+}
+
+.App .new-estates .new-estates-body .item .item-body .item-name {
+  font-size: 1.2rem;
+}
+
+.App .new-estates .new-estates-body .item .item-body .item-address {
+  font-size: 1rem;
+  border-bottom: 0.2rem white solid;
+  padding-bottom: 1rem;
+}
+
+.App .new-estates .new-estates-body .item .item-body .item-category {
+  margin-top: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1060,23 +1299,132 @@ body ::-webkit-scrollbar-thumb {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  gap: 0.5rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-header .accordion-button .container .accordion-price {
-  font-size: 2rem;
+.App .new-estates .new-estates-body .item .item-body .item-category .category {
+  font-size: 1.1rem;
+  padding: 0.3rem 0.5rem;
+  background-color: #d2dce7;
+  border-radius: 0.3rem;
 }
 
-.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-header .accordion-button .container .accordion-name {
-  font-size: 0.9rem;
-  color: white;
+.App .new-estates .new-estates-body .item .item-body .item-category .category span {
+  color: black;
 }
 
-.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-header .accordion-button .container .accordion-address {
-  font-size: 0.9rem;
+.App .new-estates .new-estates-body .item .item-body .item-rating {
+  margin-top: 1rem;
+  text-transform: uppercase;
 }
 
-.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-body {
+.App .new-estates .new-estates-body .item .item-body .item-description {
+  padding: 1rem 0;
+  font-size: 1rem;
+}
+
+.App .new-estates .new-estates-body .item .item-body .item-options {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.App .new-estates .new-estates-body .item .item-body .item-options * {
+  color: black !important;
+}
+
+.App .new-estates .new-estates-body .item .item-body .item-options svg {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.App .new-estates .new-estates-body .item .item-body .item-options .option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.3rem;
+  font-size: 1.1rem;
+  padding: 0.3rem 0.5rem;
+  background-color: #d2dce7;
+  border-radius: 0.3rem;
+}
+
+.App .new-estates .new-estates-body .item .item-body .item-options .option small {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 0.3rem;
+  font-size: 1rem;
+}
+
+.App .new-estates .new-estates-body .item .item-body .view-inside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.App .new-estates .new-estates-body .item .item-body .view-inside *::after {
+  position: absolute;
+  content: "";
+  width: 0%;
+  background-color: white;
+  height: 0.1rem;
+  left: 0;
+  bottom: -0.5rem;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
+
+.App .new-estates .new-estates-body .item .item-body .view-inside:hover *::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  background-color: white;
+  height: 0.2rem;
+  left: 0;
+  bottom: -0.5rem;
+}
+
+.App .search {
+  border-radius: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1085,50 +1433,15 @@ body ::-webkit-scrollbar-thumb {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 2rem;
+  margin-top: 3rem;
 }
 
-.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-body .accordion-options {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+.App .search .search-header {
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
 }
 
-.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-body .accordion-options .option {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 0.3rem;
-}
-
-.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-body .accordion-options .option svg {
-  width: 2.2rem;
-  height: 2.2rem;
-}
-
-.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-body .accordion-options .option svg path {
-  fill: white;
-}
-
-.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-body .accordion-options .option p {
-  font-size: 0.9rem;
-  color: white;
-}
-
-.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-body button {
-  -ms-flex-item-align: center;
-      align-self: center;
+.App .search .search-header h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1142,20 +1455,118 @@ body ::-webkit-scrollbar-thumb {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 0.5rem;
+  gap: 1rem;
+  font-size: 1.8rem;
+}
+
+.App .search .search-header h1 span {
+  width: 22ch;
+  background-color: black;
+  padding: 0.3rem 1rem;
+  border-radius: 0.3rem;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.App .search .search-header h1::before {
+  content: "";
+  width: 100%;
+  background-color: rebeccapurple;
+  border: 0.1rem black solid;
+}
+
+.App .search .search-header h1::after {
+  content: "";
+  width: 100%;
+  background-color: rebeccapurple;
+  border: 0.1rem black solid;
+}
+
+.App .search .search-body {
+  background-color: #f5f5f5;
+  height: 100%;
+  padding: 3rem;
+}
+
+.App .quick-history {
+  width: 90%;
+  background-color: #4a617f;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(16rem, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+
+.App .quick-history * {
+  color: white;
+}
+
+.App .quick-history .item {
+  background-color: rebeccapurple;
+}
+
+.App .quick-history .item .item-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.App .quick-history .item .item-header h1 {
+  color: white;
+}
+
+.App .agents {
+  width: 90%;
+  background-color: #4a617f;
+}
+
+.App .agents * {
+  color: white;
+}
+
+.App .agents .agents-header {
+  width: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App .agents .agents-header h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-size: 2rem;
+  text-transform: uppercase;
   background-color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-weight: 300;
+  padding: 2rem 2rem;
+  color: #4a617f;
+  width: 100%;
 }
 
-.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-body button svg {
-  width: 2rem;
-  height: 2rem;
-}
-
-.App .new-estates .section-body .card .card-body .accordion .accordion-item .accordion-body button svg path {
-  fill: black;
+.App .agents .agents-body {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  height: 100%;
 }
 
 .App .search-explore {
@@ -3653,138 +4064,6 @@ body ::-webkit-scrollbar-thumb {
 
 .App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-button button svg path {
   fill: white;
-}
-
-.App .agents {
-  background: url("/src/js/images/compressor/12.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: none;
-}
-
-.App .agents .agents-container {
-  padding-top: 4rem;
-  height: 100%;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.App .agents .agents-container .agent {
-  height: 100%;
-  background-color: white;
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9);
-  border-radius: 1rem;
-  margin-top: 4rem;
-  padding: 2rem;
-  position: relative;
-  background-color: white;
-  -webkit-box-shadow: 0 0 1rem 0.1rem rgba(0, 0, 0, 0.453);
-          box-shadow: 0 0 1rem 0.1rem rgba(0, 0, 0, 0.453);
-}
-
-.App .agents .agents-container .agent .agent-image {
-  position: absolute;
-  top: -4rem;
-  left: 2rem;
-  width: 100%;
-}
-
-.App .agents .agents-container .agent .agent-image img {
-  width: 40%;
-  height: 40%;
-  border-radius: 1rem;
-  -webkit-box-shadow: 0.3rem 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.343);
-          box-shadow: 0.3rem 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.343);
-}
-
-.App .agents .agents-container .agent .agent-info {
-  margin-top: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.App .agents .agents-container .agent .agent-info svg {
-  width: 2rem;
-  height: 2rem;
-  padding: 0 !important;
-}
-
-.App .agents .agents-container .agent .agent-info .row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-}
-
-.App .agents .agents-container .agent .agent-info .social-media {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  gap: 0.5rem;
-  padding-right: 1rem;
-}
-
-.App .agents .agents-container .agent .agent-info .info {
-  gap: 0.1rem;
-  margin-top: 2rem;
-}
-
-.App .agents .agents-container .agent .agent-info .info h1 {
-  font-size: 2rem;
-}
-
-.App .agents .agents-container .agent .agent-info .info h2 {
-  font-size: 1rem;
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.App .agents .agents-container .agent .agent-info .star {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  padding-left: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.App .agents .agents-container .agent .agent-info .star svg {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.App .agents .agents-container .agent .agent-info .star svg path {
-  fill: #ffc531;
-}
-
-.App .agents .agents-container .agent .agent-info .comment {
-  max-height: 14rem;
-  margin-top: 1rem;
-  overflow: auto;
-  font-size: 1.1rem;
 }
 
 .App .background {

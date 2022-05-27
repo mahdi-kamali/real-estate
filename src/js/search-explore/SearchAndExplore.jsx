@@ -877,22 +877,22 @@ const SearchAndExplore = () => {
         name: 'REAL ESTATE',
         logo: require('../images/search-explore/Providers/1.png'),
         description: "Listings identified with the FMLS IDX logo come from FMLS and are held by brokerage firms other than the owner of this website. The listing brokerage is identified in any listing details. Information is deemed reliable but is not guaranteed",
-        socialNetwork : {
-          items : [
+        socialNetwork: {
+          items: [
             {
-              svg : 'fa-brands:facebook-square' ,
-              link : ''
+              svg: 'fa-brands:facebook-square',
+              link: ''
             },
             {
-              svg : 'ri:whatsapp-fill' ,
-              link : ''
-            } ,
+              svg: 'ri:whatsapp-fill',
+              link: ''
+            },
             {
-              svg : 'akar-icons:instagram-fill' ,
-              link : ''
+              svg: 'akar-icons:instagram-fill',
+              link: ''
             }
           ]
-        }, 
+        },
         popularProperties: {
           items: [
             {
