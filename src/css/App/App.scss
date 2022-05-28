@@ -1009,14 +1009,87 @@ body {
 
     .search-body {
       background-color: $color-3;
+      border-radius: 1rem;
       height: 100%;
       padding: 3rem;
+
       .left {
-        
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 2rem;
+
+        .left-header {
+          h1 {
+            font-size: 2rem;
+          }
+        }
+        .left-body {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          gap: 2rem;
+          input {
+            all: unset;
+            padding: 0.3rem 0.3rem;
+          }
+          .search-bar {
+            padding: 0.4rem 1rem;
+            border-radius: 50vw;
+            background-color: $color-6;
+            display: flex;
+            align-items: center;
+            svg {
+              width: 1.4rem;
+              height: 1.4rem;
+              path {
+                fill: $color-2;
+              }
+            }
+          }
+          .top-searches {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            height: 100%;
+            .top-searches-header {
+              h1 {
+                font-size: 1.5rem;
+              }
+            }
+            .top-searches-body {
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+              overflow: auto;
+              .item {
+                width: 100%;
+                max-width: 20rem;
+                display: grid;
+                gap: 0.5rem;
+                grid-template-columns: 5rem 1fr;
+                background-color: $color-6;
+                border-radius: 0.4rem;
+                .item-header {
+                  img {
+                    width: 100%;
+                    object-fit: cover;
+                    aspect-ratio: 1/1;
+                  }
+                }
+                .item-body {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  padding-left: 1rem;
+                }
+              }
+            }
+          }
+        }
       }
       .right {
       }
-      
     }
   }
 
