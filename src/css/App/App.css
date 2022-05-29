@@ -1038,8 +1038,9 @@ body ::-webkit-scrollbar-thumb {
 .App .categories .categories-body {
   display: -ms-grid;
   display: grid;
+  -ms-grid-columns: (minmax(20rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   gap: 1rem;
-      grid-template-areas: "cat-five cat-five cat-five cat-five cat-six cat-six" "cat-five cat-five cat-five cat-five cat-seven cat-seven" "cat-one cat-one cat-one cat-two cat-four cat-four" "cat-one cat-one cat-one cat-three cat-four cat-four";
 }
 
 .App .categories .cat {
@@ -1051,11 +1052,12 @@ body ::-webkit-scrollbar-thumb {
   direction: ltr;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  aspect-ratio: 16/10;
   cursor: pointer;
 }
 
 .App .categories .cat:hover .cat-header {
-  height: 5rem;
+  height: 4rem;
   opacity: 1;
 }
 
@@ -1080,7 +1082,7 @@ body ::-webkit-scrollbar-thumb {
 }
 
 .App .categories .cat .cat-header h1 {
-  font-size: calc(1.5rem + 0.5vw);
+  font-size: calc(1.5rem);
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -1110,55 +1112,31 @@ body ::-webkit-scrollbar-thumb {
 }
 
 .App .categories .cat-one {
-  -ms-grid-row: 3;
-  -ms-grid-row-span: 2;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-area: cat-one;
+  grid-area: one;
 }
 
 .App .categories .cat-two {
-  -ms-grid-row: 3;
-  -ms-grid-column: 4;
-  grid-area: cat-two;
-  aspect-ratio: 16/10;
+  grid-area: two;
 }
 
 .App .categories .cat-three {
-  -ms-grid-row: 4;
-  -ms-grid-column: 4;
-  grid-area: cat-three;
-  aspect-ratio: 16/10;
+  grid-area: three;
 }
 
 .App .categories .cat-four {
-  -ms-grid-row: 3;
-  -ms-grid-row-span: 2;
-  -ms-grid-column: 5;
-  -ms-grid-column-span: 2;
-  grid-area: cat-four;
+  grid-area: four;
 }
 
 .App .categories .cat-five {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 2;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 4;
-  grid-area: cat-five;
+  grid-area: five;
 }
 
 .App .categories .cat-six {
-  -ms-grid-row: 1;
-  -ms-grid-column: 5;
-  -ms-grid-column-span: 2;
-  grid-area: cat-six;
+  grid-area: six;
 }
 
 .App .categories .cat-seven {
-  -ms-grid-row: 2;
-  -ms-grid-column: 5;
-  -ms-grid-column-span: 2;
-  grid-area: cat-seven;
+  grid-area: seven;
 }
 
 .App .new-estates {
@@ -1434,6 +1412,9 @@ body ::-webkit-scrollbar-thumb {
           flex-direction: column;
   gap: 2rem;
   margin-top: 3rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 
 .App .search .search-header {
@@ -1486,7 +1467,6 @@ body ::-webkit-scrollbar-thumb {
 .App .search .search-body {
   background-color: #f5f5f5;
   border-radius: 1rem;
-  height: 100%;
   padding: 3rem;
 }
 
@@ -1518,21 +1498,24 @@ body ::-webkit-scrollbar-thumb {
   gap: 2rem;
 }
 
-.App .search .search-body .left .left-body input {
-  all: unset;
-  padding: 0.3rem 0.3rem;
-}
-
 .App .search .search-body .left .left-body .search-bar {
   padding: 0.4rem 1rem;
   border-radius: 50vw;
   background-color: rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0rem 0.3rem 0.2rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0rem 0.3rem 0.2rem rgba(0, 0, 0, 0.1);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.App .search .search-body .left .left-body .search-bar input {
+  all: unset;
+  padding: 0.3rem 0.3rem;
+  width: 100%;
 }
 
 .App .search .search-body .left .left-body .search-bar svg {
@@ -1553,7 +1536,10 @@ body ::-webkit-scrollbar-thumb {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 0.5rem;
-  height: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .App .search .search-body .left .left-body .top-searches .top-searches-header h1 {
@@ -1569,7 +1555,16 @@ body ::-webkit-scrollbar-thumb {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 1rem;
+  width: 100%;
+  height: 50vh;
   overflow: auto;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+}
+
+.App .search .search-body .left .left-body .top-searches .top-searches-body::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  border: 0.1rem transparent solid;
 }
 
 .App .search .search-body .left .left-body .top-searches .top-searches-body .item {
@@ -1578,10 +1573,15 @@ body ::-webkit-scrollbar-thumb {
   display: -ms-grid;
   display: grid;
   gap: 0.5rem;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
   -ms-grid-columns: 5rem 1fr;
       grid-template-columns: 5rem 1fr;
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 0.4rem;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.2rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0.3rem 0.3rem 0.2rem rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 .App .search .search-body .left .left-body .top-searches .top-searches-body .item .item-header img {
@@ -1589,6 +1589,7 @@ body ::-webkit-scrollbar-thumb {
   -o-object-fit: cover;
      object-fit: cover;
   aspect-ratio: 1/1;
+  border-radius: 0.4rem 0rem 0 0.4rem;
 }
 
 .App .search .search-body .left .left-body .top-searches .top-searches-body .item .item-body {
@@ -1603,6 +1604,371 @@ body ::-webkit-scrollbar-thumb {
       -ms-flex-pack: center;
           justify-content: center;
   padding-left: 1rem;
+}
+
+.App .search .search-body .left .left-body .top-searches .top-searches-body .item:hover {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+.App .search .search-body .right {
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+.App .search .search-body .right img {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.App .search .search-body .right .right-header h1 {
+  font-size: 2rem;
+}
+
+.App .search .search-body .right .right-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.App .search .search-body .right .right-body .item {
+  position: relative;
+}
+
+.App .search .search-body .right .right-body .item .item-header {
+  background-color: white;
+}
+
+.App .search .search-body .right .right-body .item .item-body {
+  position: absolute;
+  left: 10%;
+  top: 0;
+  padding: 2rem;
+  background-color: #f5f5f5;
+  border-radius: 0 0 0.5rem 0.5rem;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.2rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0.3rem 0.3rem 0.2rem rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App .search .search-body .right .right-body .item .item-body .item-price {
+  font-size: 2rem;
+  color: black;
+}
+
+.App .search .search-body .right .right-body .item .item-body .item-name {
+  color: black;
+  font-size: 0.9rem;
+}
+
+.App .search .search-body .right .right-body .item .item-body .item-address {
+  color: black;
+  font-size: 0.8rem;
+}
+
+.App .search .search-body .right .right-body .item .item-body .item-view-inside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1rem;
+  gap: 0.3rem;
+  background-color: #4a617f;
+  color: white;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 0.4rem 1rem;
+  border-radius: 50vw;
+  margin-top: 0.5rem;
+  border: none;
+}
+
+.App .search .search-body .right .right-body .item .item-body .item-view-inside svg {
+  font-size: 1rem;
+}
+
+.App .search .search-body .row {
+  grid-column: -1/1;
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5rem;
+}
+
+.App .search .search-body .row .recent-properties .proprties-header {
+  font-size: 2rem;
+}
+
+.App .search .search-body .row .recent-properties .proprties-body .swiper {
+  width: 100%;
+  position: relative !important;
+  padding: 1rem;
+}
+
+.App .search .search-body .row .recent-properties .proprties-body .swiper .item {
+  background-color: white;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.2rem 0.1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0.3rem 0.3rem 0.2rem 0.1rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.7rem;
+  height: 100%;
+}
+
+.App .search .search-body .row .recent-properties .proprties-body .swiper .item .item-header {
+  width: 100%;
+}
+
+.App .search .search-body .row .recent-properties .proprties-body .swiper .item .item-header img {
+  aspect-ratio: 16/12;
+  width: 100%;
+  border-radius: 0.5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.App .search .search-body .row .recent-properties .proprties-body .swiper .item .item-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1.5rem 3rem;
+  gap: 0.5rem;
+}
+
+.App .search .search-body .row .recent-properties .proprties-body .swiper .item .item-body .price {
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.App .search .search-body .row .recent-properties .proprties-body .swiper .item .item-body .name {
+  font-size: 0.9rem;
+}
+
+.App .search .search-body .row .recent-properties .proprties-body .swiper .item .item-body .address {
+  font-size: 0.9rem;
+}
+
+.App .search .search-body .row .recent-properties .proprties-body .swiper .item .item-body .facilities {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.App .search .search-body .row .recent-properties .proprties-body .swiper .item .item-body .facilities .option {
+  background-color: rgba(0, 0, 0, 0.07);
+  border-radius: 0.3rem;
+  padding: 0.2rem 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.2rem;
+}
+
+.App .search .search-body .row .recent-properties .proprties-body .swiper .item .item-body .facilities .option svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.App .search .search-body .row .recent-properties .proprties-body .swiper .item .item-body .facilities .option span {
+  font-size: 1rem;
+}
+
+.App .search .search-body .row .recent-properties .proprties-body .swiper .swiper-button-prev {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #d2dce7;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.App .search .search-body .row .recent-properties .proprties-body .swiper .swiper-button-prev::after {
+  font-size: 1.5rem;
+  margin-right: 0.25rem;
+  color: black;
+}
+
+.App .search .search-body .row .recent-properties .proprties-body .swiper .swiper-button-next {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #d2dce7;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.App .search .search-body .row .recent-properties .proprties-body .swiper .swiper-button-next::after {
+  font-size: 1.5rem;
+  margin-left: 0.25rem;
+  color: black;
+}
+
+.App .search .search-body .row .unique-item {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(16rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  background-color: #4a617f;
+  border-radius: 1rem;
+  padding: 4rem;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.2rem 0.1rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0.3rem 0.3rem 0.2rem 0.1rem rgba(0, 0, 0, 0.2);
+}
+
+.App .search .search-body .row .unique-item .unique-header img {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.App .search .search-body .row .unique-item .unique-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 2rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.App .search .search-body .row .unique-item .unique-body .price {
+  font-size: 3.5rem;
+  color: white;
+}
+
+.App .search .search-body .row .unique-item .unique-body .name {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.App .search .search-body .row .unique-item .unique-body .address {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.App .search .search-body .row .unique-item .unique-body .options {
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.App .search .search-body .row .unique-item .unique-body .options .option {
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  min-width: 8ch;
+  background-color: #d2dce7;
+  padding: 0.4em 0.7em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 0.3rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.5rem;
+}
+
+.App .search .search-body .row .unique-item .unique-body .description {
+  color: white;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  opacity: 0.7;
+}
+
+.App .search .search-body .row .unique-item .unique-body .gallery {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(8rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.App .search .search-body .row .unique-item .unique-body .gallery img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.5rem;
 }
 
 .App .quick-history {
