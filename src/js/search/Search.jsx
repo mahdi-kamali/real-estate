@@ -154,7 +154,7 @@ const Search = () => {
                         <div className="proprties-body">
                             <Swiper
                                 slidesPerView={Math.round(window.innerWidth / 370)}
-                                spaceBetween={30}
+                                spaceBetween={20}
                                 slidesPerGroup={3}
                                 loop={false}
                                 loopFillGroupWithBlank={true}
@@ -516,6 +516,317 @@ const Search = () => {
                                     <img src={require("../images/search-explore/Card 1/5.jpg")} alt="" />
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="unique-list">
+                        <div className="list-header"></div>
+                        <div className="list-body">
+                            <div className='item'>
+                                <div className="item-header">
+                                    <img src={require('../images/search/1.jpg')} />
+                                </div>
+                                <div className="item-body">
+                                    <div className="price">
+                                        $2,000,255
+                                    </div>
+                                    <div className="name">
+                                        99 Chestnut Hill Ave
+                                    </div>
+                                    <div className="address">
+                                        Brighton, MA 02135
+                                    </div>
+                                    <div className="options">
+                                        <div className="option">
+                                            <Icon icon="fa:bed" />
+                                            <span>
+                                                4
+                                            </span>
+                                        </div>
+                                        <div className="option">
+                                            <Icon icon="fa-solid:bath" />
+                                            <span>
+                                                4
+                                            </span>
+                                        </div>
+                                        <div className="option">
+                                            <Icon icon="fa-solid:parking" />
+                                            <span>
+                                                4
+                                            </span>
+                                        </div>
+                                        <div className="option">
+                                            <Icon icon="bx:area" />
+                                            <span>
+                                                2,700
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="buttons">
+                                        <button>
+                                            view Inside
+                                            <Icon icon="bi:arrow-right" />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='item'>
+                                <div className="item-header">
+                                    <img src={require('../images/search/2.jpg')} />
+                                </div>
+                                <div className="item-body">
+                                    <div className="price">
+                                        $2,000,255
+                                    </div>
+                                    <div className="name">
+                                        99 Chestnut Hill Ave
+                                    </div>
+                                    <div className="address">
+                                        Brighton, MA 02135
+                                    </div>
+                                    <div className="options">
+                                        <div className="option">
+                                            <Icon icon="fa:bed" />
+                                            <span>
+                                                4
+                                            </span>
+                                        </div>
+                                        <div className="option">
+                                            <Icon icon="fa-solid:bath" />
+                                            <span>
+                                                4
+                                            </span>
+                                        </div>
+                                        <div className="option">
+                                            <Icon icon="fa-solid:parking" />
+                                            <span>
+                                                4
+                                            </span>
+                                        </div>
+                                        <div className="option">
+                                            <Icon icon="bx:area" />
+                                            <span>
+                                                2,700
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="buttons">
+                                        <button>
+                                            view Inside
+                                            <Icon icon="bi:arrow-right" />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='item'>
+                                <div className="item-header">
+                                    <img src={require('../images/search/3.jpg')} />
+                                </div>
+                                <div className="item-body">
+                                    <div className="price">
+                                        $2,000,255
+                                    </div>
+                                    <div className="name">
+                                        99 Chestnut Hill Ave
+                                    </div>
+                                    <div className="address">
+                                        Brighton, MA 02135
+                                    </div>
+                                    <div className="options">
+                                        <div className="option">
+                                            <Icon icon="fa:bed" />
+                                            <span>
+                                                4
+                                            </span>
+                                        </div>
+                                        <div className="option">
+                                            <Icon icon="fa-solid:bath" />
+                                            <span>
+                                                4
+                                            </span>
+                                        </div>
+                                        <div className="option">
+                                            <Icon icon="fa-solid:parking" />
+                                            <span>
+                                                4
+                                            </span>
+                                        </div>
+                                        <div className="option">
+                                            <Icon icon="bx:area" />
+                                            <span>
+                                                2,700
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="buttons">
+                                        <button>
+                                            view Inside
+                                            <Icon icon="bi:arrow-right" />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='item'>
+                                <div className="item-header">
+                                    <img src={require('../images/search/4.jpg')} />
+                                </div>
+                                <div className="item-body">
+                                    <div className="price">
+                                        $2,000,255
+                                    </div>
+                                    <div className="name">
+                                        99 Chestnut Hill Ave
+                                    </div>
+                                    <div className="address">
+                                        Brighton, MA 02135
+                                    </div>
+                                    <div className="options">
+                                        <div className="option">
+                                            <Icon icon="fa:bed" />
+                                            <span>
+                                                4
+                                            </span>
+                                        </div>
+                                        <div className="option">
+                                            <Icon icon="fa-solid:bath" />
+                                            <span>
+                                                4
+                                            </span>
+                                        </div>
+                                        <div className="option">
+                                            <Icon icon="fa-solid:parking" />
+                                            <span>
+                                                4
+                                            </span>
+                                        </div>
+                                        <div className="option">
+                                            <Icon icon="bx:area" />
+                                            <span>
+                                                2,700
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="buttons">
+                                        <button>
+                                            view Inside
+                                            <Icon icon="bi:arrow-right" />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='item'>
+                                <div className="item-header">
+                                    <img src={require('../images/search/5.jpg')} />
+                                </div>
+                                <div className="item-body">
+                                    <div className="price">
+                                        $2,000,255
+                                    </div>
+                                    <div className="name">
+                                        99 Chestnut Hill Ave
+                                    </div>
+                                    <div className="address">
+                                        Brighton, MA 02135
+                                    </div>
+                                    <div className="options">
+                                        <div className="option">
+                                            <Icon icon="fa:bed" />
+                                            <span>
+                                                4
+                                            </span>
+                                        </div>
+                                        <div className="option">
+                                            <Icon icon="fa-solid:bath" />
+                                            <span>
+                                                4
+                                            </span>
+                                        </div>
+                                        <div className="option">
+                                            <Icon icon="fa-solid:parking" />
+                                            <span>
+                                                4
+                                            </span>
+                                        </div>
+                                        <div className="option">
+                                            <Icon icon="bx:area" />
+                                            <span>
+                                                2,700
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="buttons">
+                                        <button>
+                                            view Inside
+                                            <Icon icon="bi:arrow-right" />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='item'>
+                                <div className="item-header">
+                                    <img src={require('../images/search/6.jpg')} />
+                                </div>
+                                <div className="item-body">
+                                    <div className="price">
+                                        $2,000,255
+                                    </div>
+                                    <div className="name">
+                                        99 Chestnut Hill Ave
+                                    </div>
+                                    <div className="address">
+                                        Brighton, MA 02135
+                                    </div>
+                                    <div className="options">
+                                        <div className="option">
+                                            <Icon icon="fa:bed" />
+                                            <span>
+                                                4
+                                            </span>
+                                        </div>
+                                        <div className="option">
+                                            <Icon icon="fa-solid:bath" />
+                                            <span>
+                                                4
+                                            </span>
+                                        </div>
+                                        <div className="option">
+                                            <Icon icon="fa-solid:parking" />
+                                            <span>
+                                                4
+                                            </span>
+                                        </div>
+                                        <div className="option">
+                                            <Icon icon="bx:area" />
+                                            <span>
+                                                2,700
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="buttons">
+                                        <button>
+                                            view Inside
+                                            <Icon icon="bi:arrow-right" />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="by-category">
+                        <div className="left">
+                            <div className="left-header">
+                                By Category
+                            </div>
+                            <div className="left-body"></div>
+                        </div>
+                        <div className="right">
+                            <div className="right-header">
+                                Properties found by category
+                            </div>
+                            <div className="right-body"></div>
                         </div>
                     </div>
                 </div>

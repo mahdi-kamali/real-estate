@@ -1971,6 +1971,146 @@ body ::-webkit-scrollbar-thumb {
   border-radius: 0.5rem;
 }
 
+.App .search .search-body .row .unique-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.App .search .search-body .row .unique-list img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  aspect-ratio: 16/10;
+  border-radius: 1rem;
+}
+
+.App .search .search-body .row .unique-list .list-body {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(calc(min(20rem, 100%)), 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(calc(min(20rem, 100%)), 1fr));
+  gap: 2rem;
+}
+
+.App .search .search-body .row .unique-list .list-body .item {
+  background-color: #4a617f;
+  color: #f5f5f5;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.2rem rgba(0, 0, 0, 0.366);
+          box-shadow: 0.3rem 0.3rem 0.2rem rgba(0, 0, 0, 0.366);
+}
+
+.App .search .search-body .row .unique-list .list-body .item .item-header img {
+  border-radius: 1rem 1rem 0 0;
+}
+
+.App .search .search-body .row .unique-list .list-body .item .item-body {
+  padding: 2rem 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5rem;
+}
+
+.App .search .search-body .row .unique-list .list-body .item .item-body .price {
+  font-size: 2.5rem;
+}
+
+.App .search .search-body .row .unique-list .list-body .item .item-body .options {
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  color: black;
+}
+
+.App .search .search-body .row .unique-list .list-body .item .item-body .options .option {
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  min-width: 8ch;
+  background-color: #d2dce7;
+  padding: 0.4em 0.7em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 0.3rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.5rem;
+}
+
+.App .search .search-body .row .unique-list .list-body .item .item-body .buttons {
+  margin-top: 1.5rem;
+  padding-left: 1rem;
+}
+
+.App .search .search-body .row .unique-list .list-body .item .item-body .buttons button {
+  all: unset;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.App .search .search-body .row .unique-list .list-body .item .item-body .buttons button::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 0.1rem;
+  bottom: -0.2rem;
+  width: 0%;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  background-color: white;
+}
+
+.App .search .search-body .row .unique-list .list-body .item .item-body .buttons button:hover::after {
+  width: 100%;
+}
+
+.App .search .search-body .row .by-category .by-category-header {
+  font-size: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-transform: capitalize;
+}
+
+.App .search .search-body .row .by-category .by-category-header small {
+  font-size: 1.1rem;
+}
+
 .App .quick-history {
   width: 90%;
   background-color: #4a617f;
@@ -4546,406 +4686,6 @@ body ::-webkit-scrollbar-thumb {
 
 .App .search-explore .section-body .card .card-row .card-arrange-to-viewing .right .form-button button svg path {
   fill: white;
-}
-
-.App .background {
-  display: none;
-}
-
-.App .background .slide {
-  height: 40rem;
-  position: relative;
-}
-
-.App .background .slide .slide-image {
-  display: block;
-  height: 100%;
-}
-
-.App .background .slide .slide-image img {
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.App .background .slide .slide-body {
-  position: absolute;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(16rem, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-  bottom: 2rem;
-  left: 2rem;
-  right: 2rem;
-  gap: 1rem;
-}
-
-.App .background .slide .slide-body .left {
-  background-color: #0084ff8e;
-  border-radius: 1rem;
-  color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 2rem;
-  gap: 0.3rem;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  -webkit-box-shadow: 0.3rem 0.3rem 1rem 0.1rem rgba(0, 0, 0, 0.348);
-          box-shadow: 0.3rem 0.3rem 1rem 0.1rem rgba(0, 0, 0, 0.348);
-}
-
-.App .background .slide .slide-body .left .slide-price {
-  font-size: 2rem;
-}
-
-.App .background .slide .slide-body .left .slide-name {
-  font-size: 0.8rem;
-}
-
-.App .background .slide .slide-body .left .slide-address {
-  font-size: 0.8rem;
-}
-
-.App .background .slide .slide-body .left .slide-buttons {
-  background-color: rgba(0, 0, 0, 0.178);
-  border-radius: 0.5rem;
-  margin-top: 1rem;
-}
-
-.App .background .slide .slide-body .left .slide-buttons button {
-  all: unset;
-  padding: 1rem;
-  cursor: pointer;
-}
-
-.App .background .slide .slide-body .right {
-  background-color: rgba(0, 0, 0, 0.719);
-  -webkit-box-shadow: 0.3rem 0.3rem 1rem 0.1rem rgba(0, 0, 0, 0.285);
-          box-shadow: 0.3rem 0.3rem 1rem 0.1rem rgba(0, 0, 0, 0.285);
-  padding: 1.5rem;
-  border-radius: 1rem;
-}
-
-.App .background .slide .slide-body .right .slide-facilities {
-  height: 100%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
-  color: white !important;
-  border-radius: 1rem;
-}
-
-.App .background .slide .slide-body .right .slide-facilities .option {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 0.5rem;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 100%;
-}
-
-.App .background .slide .slide-body .right .slide-facilities .option p {
-  font-size: 0.9rem;
-}
-
-.App .background .slide .slide-body .right .slide-facilities .option svg {
-  width: 1.8rem;
-  height: 1.8rem;
-}
-
-.App .section-one {
-  display: -webkit-box !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  display: none !important;
-}
-
-.App .section-one .glass {
-  background-image: url("/src/js/images/orginal/8.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  aspect-ratio: 16/8;
-}
-
-.App .section-one .glass .test {
-  color: black;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  max-width: 500px;
-  padding: 2rem;
-  margin: 2rem;
-  background-color: rgba(255, 255, 255, 0.277);
-  border-radius: 1rem;
-  -webkit-backdrop-filter: blur(30px);
-          backdrop-filter: blur(30px);
-  -webkit-box-shadow: 0.3rem 0.3rem 1rem 0.1rem rgba(0, 0, 0, 0.302);
-          box-shadow: 0.3rem 0.3rem 1rem 0.1rem rgba(0, 0, 0, 0.302);
-}
-
-.App .section-one .column {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-}
-
-.App .section-one .column .card {
-  all: unset;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.App .section-one .column .card .card-body {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.App .section-one .column .card .card-body .accordion {
-  max-width: 18rem;
-  width: 100%;
-  height: 100%;
-}
-
-.App .section-one .column .card .card-body .accordion .accordion-item {
-  width: 100%;
-}
-
-.App .section-one .column .card .card-body .accordion .accordion-item .accordion-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 100%;
-  background-color: #5192ced8;
-  border-radius: 1rem;
-}
-
-.App .section-one .column .card .card-body .accordion .accordion-item .accordion-header .accordion-price {
-  font-size: 2rem;
-}
-
-.App .section-one .column .card .card-body .accordion .accordion-item .accordion-header .accordion-name {
-  font-size: 0.9rem;
-  margin-top: 0.5rem;
-}
-
-.App .section-one .column .card .card-body .accordion .accordion-item .accordion-header .accordion-address {
-  font-size: 0.9rem;
-}
-
-.App .section-one .column .card .card-body .accordion .accordion-item .accordion-header button::after {
-  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 6L10 11L15 6L17 7L10 14L3 7L5 6Z' fill='black'/%3E%3C/svg%3E%0A");
-  background-size: cover;
-  -webkit-filter: invert(100%);
-          filter: invert(100%);
-  width: 2rem;
-  height: 2rem;
-}
-
-.App .section-one .column .card .card-body .accordion .accordion-item .accordion-body {
-  background-color: rgba(0, 0, 0, 0.719);
-  border-radius: 1rem;
-  margin-top: 0.7rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.App .section-one .column .card .card-body .accordion .accordion-item .accordion-body .accordion-options {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: 0.7rem;
-}
-
-.App .section-one .column .card .card-body .accordion .accordion-item .accordion-body .accordion-options .option {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9);
-  -webkit-transform-origin: center;
-          transform-origin: center;
-}
-
-.App .section-one .column .card .card-body .accordion .accordion-item .accordion-body .accordion-options .option p {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 0.9rem;
-}
-
-.App .section-one .column .card .card-body .accordion .accordion-item .accordion-body .accordion-options .option svg {
-  width: 1.7rem;
-}
-
-.App .section-one .column .card .card-body .accordion .accordion-item .accordion-body button {
-  background-color: white;
-  width: 18ch;
-  text-align: center;
-  padding: 0.6rem 0rem;
-  border-radius: 0.5rem;
-  color: black;
-}
-
-.App .section-one .column .card .card-image {
-  height: 100%;
-}
-
-.App .section-one .column .card .card-image img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
-  height: 100%;
-  border-radius: 1rem;
-}
-
-.App .section-one .column-one {
-  grid-area: column-one;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.App .section-one .column-one img {
-  aspect-ratio: 1/1;
-}
-
-.App .section-one .column-two {
-  grid-area: column-two;
-}
-
-.App .section-one .column-two img {
-  aspect-ratio: 1/1;
-}
-
-.App .section-one .column-three {
-  grid-area: column-three;
-}
-
-.App .section-one .column-three img {
-  aspect-ratio: 1/1;
-}
-
-.App .section-one .column-four {
-  grid-area: column-four;
-}
-
-.App .section-one .column-four img {
-  aspect-ratio: 1/1;
-}
-
-.App .section-one .column-five {
-  grid-area: column-five;
-}
-
-.App .section-one .column-five img {
-  aspect-ratio: 1/1;
-}
-
-.App .section-one .column-six {
-  grid-area: column-six;
-}
-
-.App .section-one .column-six img {
-  aspect-ratio: 1/1;
-}
-
-.App .section-one .column-seven {
-  grid-area: column-seven;
-}
-
-.App .section-one .column-seven img {
-  aspect-ratio: 1/1;
 }
 
 @media only screen and (max-width: 1100px) {
