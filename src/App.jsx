@@ -7,6 +7,7 @@ import SearchAndExplore from './js/search-explore/SearchAndExplore';
 import QuickHistroy from './js/quick-history/QuickHistroy';
 import Categories from './js/categories/Categories';
 import Search from './js/search/Search';
+import ByCategory from './js/by-category/ByCategory';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Categories />
       <NewEstates />
       <Search />
+      <ByCategory />
       <Agents />
       <QuickHistroy />
       <SearchAndExplore />

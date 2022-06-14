@@ -19,22 +19,6 @@ import { EffectFade, Navigation, Pagination } from "swiper";
 
 const NewEstates = () => {
 
-  const BASE_API = 'https://picsum.photos/v2/list?page=3&limit=5';
-  const [estates, setEstates] = useState([])
-
-
-  useEffect(
-    () => {
-      axios.get(BASE_API).then(
-        response => {
-          setEstates(response.data)
-        }
-      )
-    }
-    , [BASE_API]
-  )
-
-
   return (
     <section className='new-estates '>
       <div className="new-estates-header">
@@ -44,7 +28,6 @@ const NewEstates = () => {
           Estates</h1>
       </div>
       <div className="new-estates-body">
-
         <Swiper
           spaceBetween={30}
           effect={"fade"}
@@ -116,7 +99,7 @@ const NewEstates = () => {
                 </div>
               </div>
               <div className="item-image">
-                <img src={require('../images/compressor/22.jpg')} alt="" />
+                <img src={require('./images/4.jpg')} alt="" />
               </div>
             </div>
           </SwiperSlide>
@@ -181,13 +164,11 @@ const NewEstates = () => {
                 </div>
               </div>
               <div className="item-image">
-                <img src={require('../images/compressor/21.jpg')} alt="" />
+                <img src={require('./images/2.jpg')} alt="" />
               </div>
             </div>
           </SwiperSlide>
         </Swiper>
-
-
       </div>
     </section>
   )

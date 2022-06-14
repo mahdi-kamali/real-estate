@@ -32,7 +32,7 @@ const Intro = () => {
 
             <div className="intro-body">
                 <div className="intro-image">
-                    <img src={require('../images/intro/1.jpg')} alt="" />
+                    <img src={require('./images/1.jpg')} alt="" />
                 </div>
                 <div className="intro-search">
 
@@ -48,7 +48,7 @@ const Intro = () => {
                         <div className="intro-search-bar-body">
                             <Icon icon="ep:search" />
                             <input type="text" placeholder='Example : London' />
-                         
+
                         </div>
                     </div>
                     <div className="search-items">
@@ -61,7 +61,7 @@ const Intro = () => {
                                 <div className="item">
                                     <div className="item-header">
                                         <div className="item-image">
-                                            <img src={require('../images/intro/search-items/1.jpg')} alt="" />
+                                            <img src={require('./images/search-items/1.jpg')} alt="" />
                                         </div>
                                     </div>
                                     <div className="item-body">
@@ -76,7 +76,7 @@ const Intro = () => {
                                 <div className="item">
                                     <div className="item-header">
                                         <div className="item-image">
-                                            <img src={require('../images/intro/search-items/2.jpg')} alt="" />
+                                            <img src={require('./images/search-items/2.jpg')} alt="" />
                                         </div>
                                     </div>
                                     <div className="item-body">
@@ -89,7 +89,6 @@ const Intro = () => {
                                     </div>
                                 </div>
                             </div>
-
                         </div>
 
                         <div className="search-recently-added">
@@ -100,7 +99,7 @@ const Intro = () => {
                                 <div className="item">
                                     <div className="item-header">
                                         <div className="item-image">
-                                            <img src={require('../images/intro/search-items/3.jpg')} alt="" />
+                                            <img src={require('./images/search-items/3.jpg')} alt="" />
                                         </div>
                                     </div>
                                     <div className="item-body">

@@ -143,8 +143,9 @@ html .page-grid-style-responsive,
 body .page-grid-style-responsive {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 25rem 1fr;
-      grid-template-columns: 25rem 1fr;
+  width: 100%;
+  -ms-grid-columns: 28rem calc(100% - 28rem);
+      grid-template-columns: 28rem calc(100% - 28rem);
 }
 
 html ::-webkit-scrollbar,
@@ -177,6 +178,8 @@ body ::-webkit-scrollbar-thumb {
       -ms-flex-align: center;
           align-items: center;
   background-color: #d2dce7;
+  -ms-flex-item-align: center;
+      align-self: center;
 }
 
 .App * {
@@ -185,11 +188,6 @@ body ::-webkit-scrollbar-thumb {
   padding: 0;
   margin: 0;
   line-height: normal;
-}
-
-.App .slick-list {
-  -webkit-transition: height 0.5s ease;
-  transition: height 0.5s ease;
 }
 
 .App header {
@@ -211,7 +209,7 @@ body ::-webkit-scrollbar-thumb {
   top: 0;
   right: 0;
   left: 0;
-  z-index: 2;
+  z-index: 3;
   background: #f5f5f5;
   -webkit-box-shadow: 0rem 0.15em 0.3rem 0.1rem rgba(0, 0, 0, 0.2);
           box-shadow: 0rem 0.15em 0.3rem 0.1rem rgba(0, 0, 0, 0.2);
@@ -636,6 +634,255 @@ body ::-webkit-scrollbar-thumb {
 .App section {
   height: 100vh;
   width: 90%;
+}
+
+.App .swiper-card-list {
+  max-width: 100%;
+}
+
+.App .swiper-card-list .swiper {
+  width: 100%;
+  max-width: 100%;
+  position: relative !important;
+  padding: 1rem;
+}
+
+.App .swiper-card-list .swiper .swiper-slide-custome {
+  background-color: white;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.2rem 0.1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0.3rem 0.3rem 0.2rem 0.1rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.7rem;
+  height: 100%;
+}
+
+.App .swiper-card-list .swiper .swiper-slide-custome .swiper-slide-custome-header {
+  width: 100%;
+}
+
+.App .swiper-card-list .swiper .swiper-slide-custome .swiper-slide-custome-header img {
+  aspect-ratio: 16/12;
+  width: 100%;
+  border-radius: 0.5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.App .swiper-card-list .swiper .swiper-slide-custome .swiper-slide-custome-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1.5rem 3rem;
+  gap: 0.5rem;
+}
+
+.App .swiper-card-list .swiper .swiper-slide-custome .swiper-slide-custome-body .price {
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.App .swiper-card-list .swiper .swiper-slide-custome .swiper-slide-custome-body .name {
+  font-size: 0.9rem;
+}
+
+.App .swiper-card-list .swiper .swiper-slide-custome .swiper-slide-custome-body .address {
+  font-size: 0.9rem;
+}
+
+.App .swiper-card-list .swiper .swiper-slide-custome .swiper-slide-custome-body .options {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.App .swiper-card-list .swiper .swiper-slide-custome .swiper-slide-custome-body .options .option {
+  background-color: rgba(0, 0, 0, 0.07);
+  border-radius: 0.3rem;
+  padding: 0.2rem 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.2rem;
+}
+
+.App .swiper-card-list .swiper .swiper-slide-custome .swiper-slide-custome-body .options .option svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.App .swiper-card-list .swiper .swiper-slide-custome .swiper-slide-custome-body .options .option span {
+  font-size: 1rem;
+}
+
+.App .swiper-card-list .swiper .swiper-button-prev {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #d2dce7;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.App .swiper-card-list .swiper .swiper-button-prev::after {
+  font-size: 1.5rem;
+  margin-right: 0.25rem;
+  color: black;
+}
+
+.App .swiper-card-list .swiper .swiper-button-next {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #d2dce7;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.App .swiper-card-list .swiper .swiper-button-next::after {
+  font-size: 1.5rem;
+  margin-left: 0.25rem;
+  color: black;
+}
+
+.App .normal-card {
+  background-color: #4a617f;
+  color: #f5f5f5;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.2rem rgba(0, 0, 0, 0.366);
+          box-shadow: 0.3rem 0.3rem 0.2rem rgba(0, 0, 0, 0.366);
+}
+
+.App .normal-card .normal-card-header img {
+  aspect-ratio: 16/12;
+  width: 100%;
+  border-radius: 0.5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.App .normal-card .normal-card-body {
+  padding: 2rem 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5rem;
+}
+
+.App .normal-card .normal-card-body .price {
+  font-size: 2.5rem;
+}
+
+.App .normal-card .normal-card-body .options {
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  color: black;
+}
+
+.App .normal-card .normal-card-body .options .option {
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  min-width: 8ch;
+  background-color: #d2dce7;
+  padding: 0.4em 0.7em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 0.3rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.5rem;
+}
+
+.App .normal-card .normal-card-body .buttons {
+  margin-top: 1.5rem;
+  padding-left: 1rem;
+}
+
+.App .normal-card .normal-card-body .buttons button {
+  all: unset;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.App .normal-card .normal-card-body .buttons button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 0.1rem;
+  bottom: -0.2rem;
+  width: 0%;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  background-color: white;
+}
+
+.App .normal-card .normal-card-body .buttons button:hover::after {
+  width: 100%;
 }
 
 .App .card {
@@ -1723,65 +1970,50 @@ body ::-webkit-scrollbar-thumb {
   gap: 0.5rem;
 }
 
-.App .search .search-body .row .recent-properties .proprties-header {
-  font-size: 2rem;
-}
-
-.App .search .search-body .row .recent-properties .proprties-body .swiper {
-  width: 100%;
-  position: relative !important;
-  padding: 1rem;
-}
-
-.App .search .search-body .row .recent-properties .proprties-body .swiper .item {
-  background-color: white;
-  -webkit-box-shadow: 0.3rem 0.3rem 0.2rem 0.1rem rgba(0, 0, 0, 0.1);
-          box-shadow: 0.3rem 0.3rem 0.2rem 0.1rem rgba(0, 0, 0, 0.1);
-  border-radius: 0.7rem;
-  height: 100%;
-}
-
-.App .search .search-body .row .recent-properties .proprties-body .swiper .item .item-header {
-  width: 100%;
-}
-
-.App .search .search-body .row .recent-properties .proprties-body .swiper .item .item-header img {
-  aspect-ratio: 16/12;
-  width: 100%;
-  border-radius: 0.5rem;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-}
-
-.App .search .search-body .row .recent-properties .proprties-body .swiper .item .item-body {
+.App .search .search-body .row .category-search {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 1.5rem 3rem;
-  gap: 0.5rem;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
-.App .search .search-body .row .recent-properties .proprties-body .swiper .item .item-body .price {
-  font-size: 1.7rem;
-  font-weight: bold;
+.App .search .search-body .row .category-search .category-search-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: 1rem;
 }
 
-.App .search .search-body .row .recent-properties .proprties-body .swiper .item .item-body .name {
-  font-size: 0.9rem;
+.App .search .search-body .row .category-search .category-search-header .search-bar {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: rgba(100, 100, 100, 0.1);
+  border-radius: 0.7rem;
+  padding: 0.7em 1em;
+  gap: 1rem;
+  width: 20rem;
 }
 
-.App .search .search-body .row .recent-properties .proprties-body .swiper .item .item-body .address {
-  font-size: 0.9rem;
+.App .search .search-body .row .category-search .category-search-header .search-bar input {
+  all: unset;
 }
 
-.App .search .search-body .row .recent-properties .proprties-body .swiper .item .item-body .facilities {
-  margin-top: 1rem;
+.App .search .search-body .row .category-search .category-search-header .search-bar svg {
+  font-size: 1.5rem;
+}
+
+.App .search .search-body .row .category-search .category-search-header .inputs {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1791,80 +2023,27 @@ body ::-webkit-scrollbar-thumb {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
-.App .search .search-body .row .recent-properties .proprties-body .swiper .item .item-body .facilities .option {
-  background-color: rgba(0, 0, 0, 0.07);
-  border-radius: 0.3rem;
-  padding: 0.2rem 0.5rem;
+.App .search .search-body .row .category-search .category-search-header .inputs .input {
+  z-index: 2;
+}
+
+.App .search .search-body .row .recent-properties {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: 0.2rem;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
 }
 
-.App .search .search-body .row .recent-properties .proprties-body .swiper .item .item-body .facilities .option svg {
-  width: 1rem;
-  height: 1rem;
-}
-
-.App .search .search-body .row .recent-properties .proprties-body .swiper .item .item-body .facilities .option span {
-  font-size: 1rem;
-}
-
-.App .search .search-body .row .recent-properties .proprties-body .swiper .swiper-button-prev {
-  width: 2.5rem;
-  height: 2.5rem;
-  background-color: #d2dce7;
-  border-radius: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.App .search .search-body .row .recent-properties .proprties-body .swiper .swiper-button-prev::after {
-  font-size: 1.5rem;
-  margin-right: 0.25rem;
-  color: black;
-}
-
-.App .search .search-body .row .recent-properties .proprties-body .swiper .swiper-button-next {
-  width: 2.5rem;
-  height: 2.5rem;
-  background-color: #d2dce7;
-  border-radius: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.App .search .search-body .row .recent-properties .proprties-body .swiper .swiper-button-next::after {
-  font-size: 1.5rem;
-  margin-left: 0.25rem;
-  color: black;
+.App .search .search-body .row .recent-properties .proprties-header {
+  font-size: 2rem;
+  padding-left: 1em;
 }
 
 .App .search .search-body .row .unique-item {
@@ -1985,7 +2164,7 @@ body ::-webkit-scrollbar-thumb {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  aspect-ratio: 16/10;
+  aspect-ratio: 16/12;
   border-radius: 1rem;
 }
 
@@ -1997,37 +2176,19 @@ body ::-webkit-scrollbar-thumb {
   gap: 2rem;
 }
 
-.App .search .search-body .row .unique-list .list-body .item {
-  background-color: #4a617f;
-  color: #f5f5f5;
-  border-radius: 1rem;
-  -webkit-box-shadow: 0.3rem 0.3rem 0.2rem rgba(0, 0, 0, 0.366);
-          box-shadow: 0.3rem 0.3rem 0.2rem rgba(0, 0, 0, 0.366);
+.App .by-category {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 
-.App .search .search-body .row .unique-list .list-body .item .item-header img {
-  border-radius: 1rem 1rem 0 0;
+.App .by-category .by-category-header {
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  padding: 3em;
 }
 
-.App .search .search-body .row .unique-list .list-body .item .item-body {
-  padding: 2rem 3rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 0.5rem;
-}
-
-.App .search .search-body .row .unique-list .list-body .item .item-body .price {
-  font-size: 2.5rem;
-}
-
-.App .search .search-body .row .unique-list .list-body .item .item-body .options {
-  gap: 0.5rem;
-  margin-top: 0.5rem;
+.App .by-category .by-category-header h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2035,68 +2196,46 @@ body ::-webkit-scrollbar-thumb {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  color: black;
-}
-
-.App .search .search-body .row .unique-list .list-body .item .item-body .options .option {
-  max-width: -webkit-max-content;
-  max-width: -moz-max-content;
-  max-width: max-content;
-  min-width: 8ch;
-  background-color: #d2dce7;
-  padding: 0.4em 0.7em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  border-radius: 0.3rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 0.5rem;
+  gap: 1rem;
+  font-size: 1.8rem;
 }
 
-.App .search .search-body .row .unique-list .list-body .item .item-body .buttons {
-  margin-top: 1.5rem;
-  padding-left: 1rem;
-}
-
-.App .search .search-body .row .unique-list .list-body .item .item-body .buttons button {
-  all: unset;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 0.5rem;
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  position: relative;
-}
-
-.App .search .search-body .row .unique-list .list-body .item .item-body .buttons button::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  height: 0.1rem;
-  bottom: -0.2rem;
-  width: 0%;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  background-color: white;
-}
-
-.App .search .search-body .row .unique-list .list-body .item .item-body .buttons button:hover::after {
-  width: 100%;
-}
-
-.App .search .search-body .row .by-category .by-category-header {
+.App .by-category .by-category-header h1 span {
+  width: 27ch;
+  background-color: black;
+  padding: 0.3rem 1rem;
+  border-radius: 0.3rem;
+  color: white;
+  text-align: center;
   font-size: 2rem;
+}
+
+.App .by-category .by-category-header h1::before {
+  content: "";
+  width: 100%;
+  background-color: rebeccapurple;
+  border: 0.1rem black solid;
+}
+
+.App .by-category .by-category-header h1::after {
+  content: "";
+  width: 100%;
+  background-color: rebeccapurple;
+  border: 0.1rem black solid;
+}
+
+.App .by-category .by-category-body {
+  gap: 1rem;
+}
+
+.App .by-category .by-category-body .left-side {
+  background-color: #4a617f;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2104,11 +2243,186 @@ body ::-webkit-scrollbar-thumb {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  text-transform: capitalize;
+  padding: 3em;
+  gap: 2rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  border-radius: 1rem;
 }
 
-.App .search .search-body .row .by-category .by-category-header small {
-  font-size: 1.1rem;
+.App .by-category .by-category-body .left-side .left-side-header {
+  font-size: 2rem;
+  color: white;
+}
+
+.App .by-category .by-category-body .left-side .left-side-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: auto;
+  max-height: 70vh;
+  gap: 1rem;
+}
+
+.App .by-category .by-category-body .left-side .left-side-body::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 1rem;
+}
+
+.App .by-category .by-category-body .left-side .left-side-body .cat {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 7rem 1fr;
+      grid-template-columns: 7rem 1fr;
+  gap: 1rem;
+  border-radius: 0.4rem;
+}
+
+.App .by-category .by-category-body .left-side .left-side-body .cat * {
+  color: white;
+}
+
+.App .by-category .by-category-body .left-side .left-side-body .cat .cat-header {
+  image-rendering: 100%;
+}
+
+.App .by-category .by-category-body .left-side .left-side-body .cat .cat-header img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.3rem;
+}
+
+.App .by-category .by-category-body .left-side .left-side-body .cat .cat-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-transform: uppercase;
+}
+
+.App .by-category .by-category-body .left-side .left-side-body .cat .cat-body .cat-name {
+  font-size: 1.3rem;
+}
+
+.App .by-category .by-category-body .left-side .left-side-body .cat .cat-body .cat-count {
+  font-size: 1rem;
+}
+
+.App .by-category .by-category-body .right-side {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 0rem 1rem 1rem 1rem;
+}
+
+.App .by-category .by-category-body .right-side .big-card {
+  position: relative;
+  margin-right: 1rem;
+}
+
+.App .by-category .by-category-body .right-side .big-card .big-card-header img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 1rem;
+}
+
+.App .by-category .by-category-body .right-side .big-card .big-card-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 3rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  gap: 1rem;
+}
+
+.App .by-category .by-category-body .right-side .big-card .big-card-body .info {
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: white;
+  color: #4a617f;
+  border-radius: 1rem;
+}
+
+.App .by-category .by-category-body .right-side .big-card .big-card-body .info .price {
+  font-size: 3rem;
+}
+
+.App .by-category .by-category-body .right-side .big-card .big-card-body .info .name {
+  font-size: 1.3rem;
+}
+
+.App .by-category .by-category-body .right-side .big-card .big-card-body .info .address {
+  font-size: 1.3rem;
+}
+
+.App .by-category .by-category-body .right-side .big-card .big-card-body .options {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 1rem;
+}
+
+.App .by-category .by-category-body .right-side .big-card .big-card-body .options .option {
+  min-width: 12ch;
+  padding: 1rem 0.5rem;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+  background-color: white;
+  color: #4a617f;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.App .by-category .by-category-body .right-side .big-card .big-card-body .options .option svg {
+  width: 1.2;
+  width: 1.2;
 }
 
 .App .quick-history {
