@@ -19,7 +19,7 @@ const Header = () => {
         <header>
             <div className="left">
                 <div className="logo">
-                    <img src={require('./js/images/search-explore/Providers/1.png')} alt="" />
+                    <img src={require('./pages/main-page/components/images/header/logo/1.png')} alt="" />
                 </div>
                 <div className="text">
                     <div className="row">

@@ -1,26 +1,18 @@
 import './css/App/App.css';
-import Header from './Header';
-import Agents from "./js/agents/Agents"
-import NewEstates from "./js/new-estates/NewEstates"
-import Intro from './js/intro/Intro';
-import SearchAndExplore from './js/search-explore/SearchAndExplore';
-import QuickHistroy from './js/quick-history/QuickHistroy';
-import Categories from './js/categories/Categories';
-import Search from './js/search/Search';
-import ByCategory from './js/by-category/ByCategory';
+import MainPage from './pages/main-page/MainPage';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import AdminPanel from './pages/admin-panel/AdminPanel';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Intro />
-      <Categories />
-      <NewEstates />
-      <Search />
-      <ByCategory />
-      <Agents />
-      <QuickHistroy />
-      <SearchAndExplore />
+    <div className='App'>
+      <BrowserRouter >
+        <Routes>
+          <Route path='/main' element={<MainPage />} />
+          <Route path='/admin-panel' element={<AdminPanel />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
