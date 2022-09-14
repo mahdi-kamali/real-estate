@@ -1,10 +1,45 @@
 
+
+import AdminPanelHeader from "./componenets/AdminPanelHeader"
+import LeftSide from "./componenets/LeftSide"
+import Dashboard from "./componenets/Dashboard"
+import Posts from "./componenets/Posts"
+import RightSide from "./componenets/RightSide"
+import { useSelector } from 'react-redux'
+import Loading from "./componenets/Loading"
+
+
+
+
+function checkSideBarPrams(prams) {
+    switch (prams) {
+        case 'Dashboard': { return <Dashboard />; break }
+        case 'Posts': { return <Posts />; break }
+        default: { }
+    }
+}
+
+
 function AdminPanel() {
+
+    const sideBarState = useSelector((state) => state.adminPanel.value.midSide)
+    
+
     return (
         <div className="admin-panel">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis consequatur aliquam temporibus dignissimos, repellendus eum voluptas enim illum molestias, odio assumenda eaque qui dolor cupiditate placeat asperiores officia ipsum! Ea!
+            <div className="container">
+                <AdminPanelHeader />
+                <LeftSide />
+                {
+                    checkSideBarPrams(sideBarState)
+                }
+                {/* <Posts /> */}
+                <RightSide />
+                <Loading />
+            </div>
         </div>
     )
+
 }
 
 export default AdminPanel

@@ -1,7 +1,9 @@
-import './css/App/App.css';
-import MainPage from './pages/main-page/MainPage';
-
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './css/App/App.css';
+
+
+// Routes
+import MainPage from './pages/main-page/MainPage';
 import AdminPanel from './pages/admin-panel/AdminPanel';
 
 function App() {
@@ -9,8 +11,8 @@ function App() {
     <div className='App'>
       <BrowserRouter >
         <Routes>
-          <Route path='/main' element={<MainPage />} />
-          <Route path='/admin-panel' element={<AdminPanel />} />
+          <Route path='/' element={<MainPage />} />
+          <Route path='/admin-panel/dashboard' element={<AdminPanel />} />
         </Routes>
       </BrowserRouter>
     </div>

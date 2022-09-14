@@ -10,7 +10,9 @@ import Footer from './components/outro/Footer';
 
 
 
+
 const MainPage = () => {
+
     return (
         <div className="main-page">
             <Header />

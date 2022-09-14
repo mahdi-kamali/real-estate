@@ -1,12 +1,14 @@
 import { useRef, useState } from 'react';
 import { Icon } from '@iconify/react';
 import { Accordion, AccordionButton } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 
 const Header = () => {
     const sideBar = useRef(null)
     const sideBarSvg = useRef(null)
     const [sideBarState, setSideBarState] = useState(false)
+    const navigate = useNavigate();
 
     const sideBarMenuOpenCloseClick = () => {
         !sideBarState ? sideBar.current.style.transform = 'translateY(0%)' : sideBar.current.style.transform = 'translateY(-120%)'
@@ -34,6 +36,9 @@ const Header = () => {
                 </div>
                 <div className="mortgage">
                     <button>mortgage</button>
+                </div>
+                <div className="mortgage">
+                    <button onClick={() => { navigate('/admin-panel/dashboard') }} >Admin Panel</button>
                 </div>
             </div>
             <div className="right">
