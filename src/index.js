@@ -20,7 +20,7 @@ const store = configureStore({
     user : userReducer,
     adminPanel : AdminStates , 
     loading : LoadingStates , 
-    date : DateStates
+    date : DateStates 
   }
 })
 
