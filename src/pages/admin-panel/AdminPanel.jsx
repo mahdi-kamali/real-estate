@@ -26,7 +26,6 @@ function AdminPanel() {
 
     const sideBarState = useSelector((state) => state.adminPanel.value.midSide)
 
-    console.log(sideBarState);
     
 
     return (

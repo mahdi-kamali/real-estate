@@ -3,24 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
 //  Redux & States
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
-import userReducer from './features/user'
+import userReducer from './features/user/user'
 import AdminStates from './features/admin-panel/AdminStates';
 import LoadingStates from './features/admin-panel/LoadingStates';
 import DateStates from './features/admin-panel/DateStates';
+import PopUpStates from './features/admin-panel/PopUpStates';
 
 const store = configureStore({
   reducer: {
     user : userReducer,
     adminPanel : AdminStates , 
     loading : LoadingStates , 
-    date : DateStates 
+    date : DateStates ,
+    popUp : PopUpStates
   }
 })
 
