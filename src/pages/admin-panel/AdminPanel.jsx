@@ -6,9 +6,10 @@ import Dashboard from "./componenets/Dashboard/Dashboard"
 import Posts from "./componenets/Posts/Posts"
 import RightSide from "./componenets/RightSide"
 import { useSelector } from 'react-redux'
-import Loading from "./componenets/Loading"
+import Loading from "../loadings/Loading"
 import Categories from "./componenets/Categories/Categories"
-
+import CustomeAlert from '../alerts/AlertsBox'
+import AlertsBox from "../alerts/AlertsBox"
 
 
 
@@ -25,6 +26,7 @@ function checkSideBarPrams(prams) {
 function AdminPanel() {
 
     const sideBarState = useSelector((state) => state.adminPanel.value.midSide)
+    
 
     
 
@@ -38,7 +40,7 @@ function AdminPanel() {
                 }
                 {/* <Posts /> */}
                 <RightSide />
-                <Loading />
+                <AlertsBox />
             </div>
         </div>
     )

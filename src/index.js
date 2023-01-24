@@ -14,6 +14,8 @@ import AdminStates from './features/admin-panel/AdminStates';
 import LoadingStates from './features/admin-panel/LoadingStates';
 import DateStates from './features/admin-panel/DateStates';
 import PopUpStates from './features/admin-panel/PopUpStates';
+import CategoriesState from './features/admin-panel/CategoriesState';
+import AlertsState from './features/alert/AlertsState';
 
 const store = configureStore({
   reducer: {
@@ -21,7 +23,9 @@ const store = configureStore({
     adminPanel : AdminStates , 
     loading : LoadingStates , 
     date : DateStates ,
-    popUp : PopUpStates
+    popUp : PopUpStates , 
+    categories : CategoriesState , 
+    alerts : AlertsState
   }
 })
 

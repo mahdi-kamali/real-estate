@@ -1,0 +1,10 @@
+
+
+export const CLOSE_POP_UP = "CLOSE_POP_UP"
+
+export const  USER_POP_OPEN = "USER_POP_OPEN"
+
+
+export const CATEGORY_POP_CREATE = "CATEGORY_POP_CREATE"
+
+export const CATEGORY_POP_UPDATE = "CATEGORY_POP_UPDATE"

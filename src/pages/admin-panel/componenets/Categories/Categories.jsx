@@ -8,43 +8,75 @@ import axios from 'axios';
 import UpdateCategory from './components/UpdateCategory';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPopUp } from 'src/features/admin-panel/PopUpStates';
+import { BASE_URL } from 'src/consts/API/API_CONSTS';
+import { CATEGORY_POP_CREATE, CATEGORY_POP_UPDATE } from 'src/consts/popUp/POP_UP_CONTS';
+import { addAlert } from 'src/features/alert/AlertsState';
+import { ALERT_STATUS_DANGER, ALERT_STATUS_SUCCESS, ALERT_TYPE_TEXT } from 'src/consts/Alert/ALERTS_CONSTS';
 const Categories = () => {
 
 
-    const CATS_BASE_URL = "http://192.168.1.106/api/Category.php"
-
-    const [categories, setCategories] = useState([
-        {
-            catImage: require('../../images/mid/1.jpg'),
-            catName: "test",
-            catLink: "https://google.com"
-        },
-    ]);
-
-    // useEffect(() => {
-    //     axios.get(CATS_BASE_URL)
-    //         .then(response => {
-    //             const temp = response.data
-    //             console.log(temp);
-    //             setCategories(temp)
-    //         }).catch(error => {
-    //             console.log(error);
-    //         }).finally()
-    // }, [])
-
-
     const dispatcher = useDispatch()
-    const popUpType = useSelector(state => state.popUp.value.popUpType);
+    const popUp = useSelector(state => state.popUp.value);
+    const token = useSelector(state => state.user.value.token)
+    const categoriesRefresh = useSelector(state => state.categories.value)
+
+
+    const CATS_BASE_URL = BASE_URL + "category"
+
+    const [categories, setCategories] = useState([]);
 
 
 
 
-   
-    function createNewCategory() {
-        dispatcher(setPopUp({popUpType : "Category Create"}))
+
+
+
+
+    const headers = {
+        headers: {
+            Accept: 'application/json',
+            Content_Type: "application/json",
+            Authorization: `Bearer ${token}`
+        }
     }
+
+
+    useEffect(() => {
+
+        axios.get(CATS_BASE_URL, headers)
+            .then(response => {
+                const temp = response
+                if (response.status == 200) {
+                    setCategories(temp.data.data)
+                }
+            }).catch(error => {
+                console.log(error.message);
+                // console.log(error.response.data.message);
+                if (error.message) {
+                    dispatcher(addAlert({
+                        type: ALERT_TYPE_TEXT,
+                        status: ALERT_STATUS_DANGER,
+                        header: "NETWORK ERROR",
+                        body: "somthing Wrong with your connection ! please check you are connected to internet or Not !",
+                        timeOut: 10
+                    }))
+                }
+
+            }).finally()
+    }, [categoriesRefresh])
+
+
+
+
+
+
+    function createNewCategory() {
+        dispatcher(setPopUp(CATEGORY_POP_CREATE))
+    }
+
+
     const closePopUp = () => {
-        dispatcher(setPopUp({popUpType : "none"}))
+        dispatcher(setPopUp({ popUpType: "none" }))
     }
 
 
@@ -63,8 +95,8 @@ const Categories = () => {
                         return <Category key={index} categoryProp={categoryProp} />
                     })}
                 </div>
-                {<PopUp component={<UpdateCategory />} isShowing={popUpType === "Category Update"} closePopUp={closePopUp} />}
-                {<PopUp component={<CreateCategory />} isShowing={popUpType === "Category Create"} closePopUp={closePopUp} />}
+                {<PopUp component={<UpdateCategory />} isShowing={popUp.type === CATEGORY_POP_UPDATE} closePopUp={closePopUp} />}
+                {<PopUp component={<CreateCategory />} isShowing={popUp === CATEGORY_POP_CREATE} closePopUp={closePopUp} />}
             </div>
         </div>
     )

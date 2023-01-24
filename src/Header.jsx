@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PopUp from './pages/pop-ups/PopUp';
 import UserPopUp from './pages/user/UserPopUp';
 import { setPopUp } from './features/admin-panel/PopUpStates';
+import { USER_POP_OPEN } from './consts/popUp/POP_UP_CONTS';
 
 
 const Header = () => {
@@ -20,14 +21,19 @@ const Header = () => {
     }
 
     const dispatcher = useDispatch()
-    const user = useSelector(state => state.user.value)
 
-    const popUpType = useSelector(state => state.popUp.value.popUpType)
+    const popUp = useSelector(state => state.popUp.value)
 
+    const data = useSelector(state => state.user.value)
+
+    const user = data ? data.user.role : undefined
+
+    console.log(user);
 
     function signOrLogClick() {
-        dispatcher(setPopUp({ popUpType: "User Pop" }))
+        dispatcher(setPopUp(USER_POP_OPEN))
     }
+
 
 
     return (
@@ -51,9 +57,15 @@ const Header = () => {
                     <div className="mortgage">
                         <button>mortgage</button>
                     </div>
-                    <div className="mortgage">
-                        <button onClick={() => { navigate('/admin-panel/dashboard') }} >Admin Panel</button>
-                    </div>
+                    {
+                        user === 1 ? <div className="mortgage">
+                            <button onClick={() => { navigate('/admin-panel/dashboard') }} >Admin Panel</button>
+                        </div> : ""
+
+                    }
+
+
+
                 </div>
                 <div className="right">
                     <ul className='header-list'>
@@ -70,7 +82,7 @@ const Header = () => {
                     </ul>
                     <button className="account" onClick={signOrLogClick}>
                         <Icon icon="ic:round-account-circle" />
-                        {user.type === "none" ? "Sign Up Or Login" : user.name}
+                        {data ? data.user.name : "Login / SignUp"}
                     </button>
                     <div className="side-bar">
                         <div className="side-bar-open-close-button" ref={sideBarSvg} onClick={sideBarMenuOpenCloseClick} >
@@ -207,7 +219,7 @@ const Header = () => {
                 </div>
 
             </header>
-            <PopUp component={<UserPopUp />} isShowing={popUpType === "User Pop"} />
+            <PopUp component={<UserPopUp />} isShowing={popUp === USER_POP_OPEN} />
         </>
 
     )

@@ -1,6 +1,16 @@
 import { Icon } from '@iconify/react';
+import { useDispatch } from 'react-redux';
+import { ALERT_STATUS_SUCCESS, ALERT_TYPE_TEXT } from 'src/consts/Alert/ALERTS_CONSTS';
+import { addAlert } from 'src/features/alert/AlertsState';
 
 function AdminPanelHeader() {
+
+  const dispatcher = useDispatch()
+
+  const onImgClick = () => {
+  
+  }
+
   return (
     <header>
       <div className="left">
@@ -25,7 +35,7 @@ function AdminPanelHeader() {
       </div>
       <div className="right">
         <div className="img">
-          <img src={require('../images/header/2.webp')} alt="" />
+          <img src={require('../images/header/2.webp')} alt="" onClick={onImgClick} />
         </div>
         <div className="info">
           <h1> Admin Name </h1>
