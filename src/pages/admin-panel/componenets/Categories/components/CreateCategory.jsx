@@ -2,8 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ALERT_STATUS_DANGER, ALERT_TYPE_TEXT } from "src/consts/Alert/ALERTS_CONSTS";
-import { BASE_URL } from "src/consts/API/API_CONSTS";
+import { ALERT_STATUS_DANGER, ALERT_STATUS_SUCCESS, ALERT_TYPE_TEXT } from "src/consts/Alert/ALERTS_CONSTS";
+import { BASE_URL_ADMIN } from "src/consts/API/API_CONSTS";
 import { CLOSE_POP_UP } from "src/consts/popUp/POP_UP_CONTS";
 import { refreshCategories } from "src/features/admin-panel/CategoriesState";
 import { setLoading } from "src/features/admin-panel/LoadingStates";
@@ -12,7 +12,7 @@ import { addAlert } from "src/features/alert/AlertsState";
 
 const CreateCategory = () => {
 
-  const CATEGORY_CREATE_URL = BASE_URL + "category";
+  const CATEGORY_CREATE_URL = BASE_URL_ADMIN + "category";
 
   const dispatcher = useDispatch();
 
@@ -62,20 +62,31 @@ const CreateCategory = () => {
         if (res.status == 201) {
           dispatcher(setPopUp(CLOSE_POP_UP))
           dispatcher(refreshCategories())
+          dispatcher(addAlert({
+            type: ALERT_TYPE_TEXT,
+            status: ALERT_STATUS_SUCCESS,
+            header: res.statusText,
+            body: res.data.data.message,
+            timeOut: 3
+          }))
         }
         dispatcher(setLoading({ show: false }))
       })
       .catch(error => {
-        console.log("Error => " + error.response.data.message)
+
+        if (error?.response?.data?.message) {
+          dispatcher(addAlert({
+            type: ALERT_TYPE_TEXT,
+            status: ALERT_STATUS_DANGER,
+            header: "Error !",
+            body: error.response.data.message,
+            timeOut: 5
+          }))
+        }
+
         dispatcher(setLoading({ show: false }))
         if (error.message) {
-          dispatcher(addAlert({
-            type : ALERT_TYPE_TEXT ,
-            status : ALERT_STATUS_DANGER , 
-            header : "Error !" ,
-            body : error.nessage ,
-            timeOut : 10 
-          }))
+
         }
       })
   }

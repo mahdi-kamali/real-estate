@@ -1,6 +1,7 @@
 import { Icon } from '@iconify/react';
 import { useState } from 'react';
 import { useTransition, animated } from 'react-spring'
+import IntroSearch from './components/IntroSearch/IntroSearch';
 
 
 const Intro = () => {
@@ -18,8 +19,6 @@ const Intro = () => {
     return (
         <section className="intro page-grid-style-responsive">
 
-
-
             <div className="intro-body right">
                 <div className="intro-image">
 
@@ -35,89 +34,7 @@ const Intro = () => {
                         })
                     }
                 </div>
-                <div className="intro-search">
-
-                    <div className="search-bar">
-                        <div className="intro-search-bar-header">
-                            <h1>
-                                Need To Find Home ?
-                            </h1>
-                            <span>
-                                Search From <small>1000</small> Proprties
-                            </span>
-                        </div>
-                        <div className="intro-search-bar-body">
-                            <Icon icon="ep:search" />
-                            <input type="text" placeholder='Example : London' />
-
-                        </div>
-                    </div>
-                    <div className="search-items">
-
-                        <div className="search-most-popular">
-                            <div className="most-popular-header">
-                                Most Popular This Week
-                            </div>
-                            <div className="most-popular-body">
-                                <div className="item">
-                                    <div className="item-header">
-                                        <div className="item-image">
-                                            <img src={require('./images/search-items/1.jpg')} alt="" />
-                                        </div>
-                                    </div>
-                                    <div className="item-body">
-                                        <div className="item-name">
-                                            99 Chestnut Hill Ave
-                                        </div>
-                                        <div className="item-address">
-                                            Brighton, MA 02135
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="item">
-                                    <div className="item-header">
-                                        <div className="item-image">
-                                            <img src={require('./images/search-items/2.jpg')} alt="" />
-                                        </div>
-                                    </div>
-                                    <div className="item-body">
-                                        <div className="item-name">
-                                            3738 Briarcliff Rd
-                                        </div>
-                                        <div className="item-address">
-                                            Atlanta, GA 30345
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="search-recently-added">
-                            <div className="recently-added-header">
-                                Recently Added
-                            </div>
-                            <div className="recently-added-body">
-                                <div className="item">
-                                    <div className="item-header">
-                                        <div className="item-image">
-                                            <img src={require('./images/search-items/3.jpg')} alt="" />
-                                        </div>
-                                    </div>
-                                    <div className="item-body">
-                                        <div className="item-name">
-                                            2133 Allaire Ln
-                                        </div>
-                                        <div className="item-address">
-                                            Atlanta, GA 30345
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
+                <IntroSearch />
                 <div className="communication">
                     <div className="item">
                         <Icon icon="bx:support" />
@@ -157,7 +74,6 @@ const Intro = () => {
                     </ul>
                 </div>
             </div>
-
 
             <button onClick={() => { setState(!state) }}>
                 Click Me

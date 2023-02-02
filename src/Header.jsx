@@ -28,7 +28,6 @@ const Header = () => {
 
     const user = data ? data.user.role : undefined
 
-    console.log(user);
 
     function signOrLogClick() {
         dispatcher(setPopUp(USER_POP_OPEN))

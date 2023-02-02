@@ -8,8 +8,9 @@ const PopUp = (props) => {
     const component = props.component
     const dispatcher = useDispatch()
 
+
+
     const closePopUp = () => {
-        // dispatcher(setPopUp({ popUpType: "none" }))
         dispatcher(setPopUp("CLOSE"))
     }
 

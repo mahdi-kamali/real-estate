@@ -1,7 +1,7 @@
 import { Icon } from '@iconify/react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { BASE_URL } from 'src/consts/API/API_CONSTS';
+import { BASE_URL_ADMIN } from 'src/consts/API/API_CONSTS';
 import { CATEGORY_POP_UPDATE } from 'src/consts/popUp/POP_UP_CONTS';
 import { refreshCategories } from 'src/features/admin-panel/CategoriesState';
 import { setLoading } from 'src/features/admin-panel/LoadingStates';
@@ -10,7 +10,7 @@ const Category = ({ categoryProp }) => {
 
 
 
-    const CATEGORY_DELETE = BASE_URL + "category/" + categoryProp.id
+    const CATEGORY_DELETE = BASE_URL_ADMIN + "category/" + categoryProp.id
 
 
 

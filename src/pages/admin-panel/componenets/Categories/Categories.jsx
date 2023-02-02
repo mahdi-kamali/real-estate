@@ -8,7 +8,7 @@ import axios from 'axios';
 import UpdateCategory from './components/UpdateCategory';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPopUp } from 'src/features/admin-panel/PopUpStates';
-import { BASE_URL } from 'src/consts/API/API_CONSTS';
+import { BASE_URL_ADMIN } from 'src/consts/API/API_CONSTS';
 import { CATEGORY_POP_CREATE, CATEGORY_POP_UPDATE } from 'src/consts/popUp/POP_UP_CONTS';
 import { addAlert } from 'src/features/alert/AlertsState';
 import { ALERT_STATUS_DANGER, ALERT_STATUS_SUCCESS, ALERT_TYPE_TEXT } from 'src/consts/Alert/ALERTS_CONSTS';
@@ -21,14 +21,9 @@ const Categories = () => {
     const categoriesRefresh = useSelector(state => state.categories.value)
 
 
-    const CATS_BASE_URL = BASE_URL + "category"
+    const CATS_BASE_URL = BASE_URL_ADMIN + "category"
 
     const [categories, setCategories] = useState([]);
-
-
-
-
-
 
 
 
@@ -68,8 +63,6 @@ const Categories = () => {
 
 
 
-
-
     function createNewCategory() {
         dispatcher(setPopUp(CATEGORY_POP_CREATE))
     }
@@ -95,9 +88,10 @@ const Categories = () => {
                         return <Category key={index} categoryProp={categoryProp} />
                     })}
                 </div>
-                {<PopUp component={<UpdateCategory />} isShowing={popUp.type === CATEGORY_POP_UPDATE} closePopUp={closePopUp} />}
-                {<PopUp component={<CreateCategory />} isShowing={popUp === CATEGORY_POP_CREATE} closePopUp={closePopUp} />}
+
             </div>
+            {<PopUp component={<UpdateCategory />} isShowing={popUp.type === CATEGORY_POP_UPDATE} closePopUp={closePopUp} />}
+            {<PopUp component={<CreateCategory />} isShowing={popUp === CATEGORY_POP_CREATE} closePopUp={closePopUp} />}
         </div>
     )
 }

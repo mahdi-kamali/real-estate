@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BASE_SERVER_ULR, BASE_URL } from "src/consts/API/API_CONSTS";
+import { BASE_SERVER_ULR, BASE_URL_ADMIN } from "src/consts/API/API_CONSTS";
 import { CLOSE_POP_UP } from "src/consts/popUp/POP_UP_CONTS";
 import { refreshCategories } from "src/features/admin-panel/CategoriesState";
 import { setLoading } from "src/features/admin-panel/LoadingStates";
@@ -17,7 +17,7 @@ const UpdateCategory = () => {
 
   const category = popUp.category ? popUp.category : undefined
 
-  let CATEGORY_UPDATE_URL = BASE_URL + "category/" + category?.id;
+  let CATEGORY_UPDATE_URL = BASE_URL_ADMIN + "category/" + category?.id;
 
 
 
@@ -56,19 +56,19 @@ const UpdateCategory = () => {
       headers: {
         Accept: 'application/json',
         Authorization: `Bearer ${token}`,
-        "Content-Type": "multipart/form-data" ,
+        "Content-Type": "multipart/form-data",
       },
       onUploadProgress: function (progressEvent) {
         console.log(Math.round((progressEvent.loaded * 100) / progressEvent.total));
       }
     };
 
-    formData.append("_method" , "PUT")
+    formData.append("_method", "PUT")
 
 
     axios.post(
       CATEGORY_UPDATE_URL,
-       formData ,
+      formData,
       config,
     )
       .then(res => {
