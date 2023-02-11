@@ -35,6 +35,7 @@ function LeftSide() {
         <li className={selected == 1 ? 'selected' : ""} onClick={() => { changeMidSide("Posts", 1) }}> <Icon icon="bi:card-list" color="black" /><small>Posts</small> </li>
         <li className={selected == 2 ? 'selected' : ""} onClick={() => { changeMidSide("Setting", 2) }}>  <Icon icon="ant-design:setting-outlined" color="black" /> <small>Setting</small> </li>
         <li className={selected == 3 ? 'selected' : ""} onClick={() => { changeMidSide("Categories", 3) }}>  <Icon icon="carbon:category-new" color="black" /> <small>Categoires</small> </li>
+        <li className={selected == 4 ? 'selected' : ""} onClick={() => { changeMidSide("Comments", 4) }}>  <Icon icon="ic:sharp-insert-comment" color="black" /> <small>Comments</small> </li>
       </ul>
 
     </aside>

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import {  ALERT_STATUS_SUCCESS, ALERT_TYPE_TEXT } from 'src/consts/Alert/ALERTS_CONSTS';
+import { ALERT_STATUS_SUCCESS, ALERT_TYPE_TEXT } from 'src/consts/Alert/ALERTS_CONSTS';
 
 
 export const alertsBoxSlice = createSlice({
@@ -36,10 +36,13 @@ export const alertsBoxSlice = createSlice({
             state.value.splice(index, 1);
         },
         editAlert(state, action) {
+        },
+        clearAlert(state, action) {
+            state.value = []
         }
     }
 })
 
-export const { addAlert, removeAlert, editAlert } = alertsBoxSlice.actions
+export const { addAlert, removeAlert, editAlert, clearAlert } = alertsBoxSlice.actions
 
 export default alertsBoxSlice.reducer

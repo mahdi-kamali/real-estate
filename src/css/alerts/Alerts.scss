@@ -1,0 +1,172 @@
+.alertsBox {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 999;
+
+    .left {
+        padding: 0;
+        margin: 0;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        color: white;
+        height: 100%;
+        position: relative;
+        .timer {
+            position: absolute;
+            top: 50%;
+            bottom: 0;
+            transform: translateY(-50%);
+            width: 2.35rem;
+        }
+    }
+    .right {
+        overflow: hidden;
+        &:hover {
+            .closeAlert {
+                transform: translateX(0);
+            }
+        }
+        .closeAlert {
+            all: unset;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+            border-radius: 50%;
+            background-color: white;
+            width: 1.5rem;
+            height: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transform: translateX(200%);
+            * {
+                color: black !important;
+            }
+        }
+    }
+    .alert-header {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+    }
+    .success {
+        background-color: #91c230 !important;
+        * {
+            color: white !important;
+        }
+    }
+    .warning {
+        background-color: #da9a2d !important;
+    }
+    .danger {
+        background-color: #cb0409 !important ;
+    }
+    .question {
+        background-color: #3e98c7 !important;
+    }
+    .alertText {
+        all: unset;
+        display: flex;
+        min-width: 18rem;
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        max-width: 10rem;
+        user-select: none;
+        * {
+            color: white;
+        }
+        .right {
+            display: flex;
+            flex-direction: column;
+            padding: 1em 1em;
+            padding-left: 0;
+            gap: 0.25rem;
+            position: relative;
+            width: 100%;
+            .alert-body {
+                opacity: 0.8;
+                font-size: 0.8rem;
+                display: flex;
+                gap: 0.2rem;
+                display: flex;
+                justify-content: space-between;
+                gap: 1rem;
+            }
+        }
+    }
+    .alertButton {
+        all: unset;
+        display: flex;
+        min-width: 22rem;
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        max-width: 10rem;
+        user-select: none;
+        * {
+            color: white;
+        }
+
+        .right {
+            display: flex;
+            flex-direction: column;
+            padding: 1em 1em;
+            padding-left: 0;
+            gap: 0.5rem;
+            .alert-body {
+                opacity: 0.8;
+                font-size: 0.8rem;
+                display: flex;
+                flex-direction: row;
+                gap: 0.5rem;
+                justify-content: center;
+                button {
+                    all: unset;
+                    background-color: white;
+                    color: black;
+                    padding: 0.25em 1em;
+                    border-radius: 100rem;
+                    font-weight: bold;
+                    font-size: 0.95rem;
+                }
+            }
+        }
+    }
+    .show {
+        animation: slideIN 1.7s ease forwards;
+    }
+    .hide {
+        animation: slideOUT 1.7s ease forwards;
+    }
+}
+
+@keyframes slideIN {
+    from {
+        transform: translateX(125%);
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slideOUT {
+    from {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+    to {
+        opacity: 0.5;
+        transform: translateX(125%);
+    }
+}

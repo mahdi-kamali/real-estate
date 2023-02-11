@@ -17,6 +17,10 @@ import PopUpStates from './features/admin-panel/PopUpStates';
 import CategoriesState from './features/admin-panel/CategoriesState';
 import AlertsState from './features/alert/AlertsState';
 import PostsState from './features/admin-panel/PostsState';
+import GalleryStates from './features/admin-panel/GalleryStates';
+import PropertiesState from './features/admin-panel/PropertiesState';
+import CommentsState from './features/admin-panel/CommentsState';
+import ColorsState from './features/admin-panel/ColorsState';
 
 const store = configureStore({
   reducer: {
@@ -27,7 +31,11 @@ const store = configureStore({
     popUp : PopUpStates , 
     categories : CategoriesState , 
     alerts : AlertsState , 
-    posts : PostsState
+    posts : PostsState , 
+    gallery : GalleryStates  ,
+    properties : PropertiesState , 
+    comments : CommentsState , 
+    colors : ColorsState
   }
 })
 

@@ -1,0 +1,171 @@
+.alertsBox {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 999;
+}
+.alertsBox .left {
+  padding: 0;
+  margin: 0;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: white;
+  height: 100%;
+  position: relative;
+}
+.alertsBox .left .timer {
+  position: absolute;
+  top: 50%;
+  bottom: 0;
+  transform: translateY(-50%);
+  width: 2.35rem;
+}
+.alertsBox .right {
+  overflow: hidden;
+}
+.alertsBox .right:hover .closeAlert {
+  transform: translateX(0);
+}
+.alertsBox .right .closeAlert {
+  all: unset;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: white;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transform: translateX(200%);
+}
+.alertsBox .right .closeAlert * {
+  color: black !important;
+}
+.alertsBox .alert-header {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+.alertsBox .success {
+  background-color: #91c230 !important;
+}
+.alertsBox .success * {
+  color: white !important;
+}
+.alertsBox .warning {
+  background-color: #da9a2d !important;
+}
+.alertsBox .danger {
+  background-color: #cb0409 !important;
+}
+.alertsBox .question {
+  background-color: #3e98c7 !important;
+}
+.alertsBox .alertText {
+  all: unset;
+  display: flex;
+  min-width: 18rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  max-width: 10rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.alertsBox .alertText * {
+  color: white;
+}
+.alertsBox .alertText .right {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 1em;
+  padding-left: 0;
+  gap: 0.25rem;
+  position: relative;
+  width: 100%;
+}
+.alertsBox .alertText .right .alert-body {
+  opacity: 0.8;
+  font-size: 0.8rem;
+  display: flex;
+  gap: 0.2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.alertsBox .alertButton {
+  all: unset;
+  display: flex;
+  min-width: 22rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  max-width: 10rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.alertsBox .alertButton * {
+  color: white;
+}
+.alertsBox .alertButton .right {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 1em;
+  padding-left: 0;
+  gap: 0.5rem;
+}
+.alertsBox .alertButton .right .alert-body {
+  opacity: 0.8;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.alertsBox .alertButton .right .alert-body button {
+  all: unset;
+  background-color: white;
+  color: black;
+  padding: 0.25em 1em;
+  border-radius: 100rem;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+.alertsBox .show {
+  animation: slideIN 1.7s ease forwards;
+}
+.alertsBox .hide {
+  animation: slideOUT 1.7s ease forwards;
+}
+
+@keyframes slideIN {
+  from {
+    transform: translateX(125%);
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@keyframes slideOUT {
+  from {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+    transform: translateX(125%);
+  }
+}/*# sourceMappingURL=Alerts.css.map */

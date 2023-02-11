@@ -81,7 +81,7 @@ const Header = () => {
                     </ul>
                     <button className="account" onClick={signOrLogClick}>
                         <Icon icon="ic:round-account-circle" />
-                        {data ? data.user.name : "Login / SignUp"}
+                        {data ? data?.user?.name : "Login / SignUp"}
                     </button>
                     <div className="side-bar">
                         <div className="side-bar-open-close-button" ref={sideBarSvg} onClick={sideBarMenuOpenCloseClick} >

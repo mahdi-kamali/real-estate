@@ -8,21 +8,17 @@ import WeeklyArranges from '../charts/WeeklyArranges';
 import TopNeighborhood from '../charts/TopNeighborhood';
 
 
-// Line Progress Bar
-import { Line, Circle } from 'rc-progress';
-import WeeklyEvents from './components/WeeklyEvents/WeeklyEvents';
+
 import Posts from './components/Posts/Posts';
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BASE_URL_ADMIN } from 'src/consts/API/API_CONSTS';
-import axios from 'axios';
-import { useEffect } from 'react';
 import PopUp from 'src/pages/pop-ups/PopUp';
 import PostCreate from './components/Posts/components/PostCreate';
 import { setPopUp } from 'src/features/admin-panel/PopUpStates';
-import { POSTS_POP_CREATE, POSTS_POP_GALLERY, POSTS_POP_UPDATE } from 'src/consts/popUp/POP_UP_CONTS';
+import { POSTS_POP_COLORS, POSTS_POP_CREATE, POSTS_POP_GALLERY, POSTS_POP_PROPERTIES, POSTS_POP_UPDATE } from 'src/consts/popUp/POP_UP_CONTS';
 import PostEdit from './components/Posts/components/PostEdit';
 import PostGallery from './components/Posts/components/PostGallery/PostGallery';
+import PostProperties from './components/Posts/components/PostProperties';
+import PostColors from './components/Posts/components/PostColors';
 
 
 
@@ -55,6 +51,8 @@ function PostsContainer() {
       <PopUp component={<PostCreate />} isShowing={popUp == POSTS_POP_CREATE} />
       <PopUp component={<PostEdit />} isShowing={popUp.type == POSTS_POP_UPDATE} />
       <PopUp component={<PostGallery />} isShowing={popUp.type == POSTS_POP_GALLERY} />
+      <PopUp component={<PostProperties />} isShowing={popUp.type == POSTS_POP_PROPERTIES} />
+      <PopUp component={<PostColors />} isShowing={popUp.type == POSTS_POP_COLORS} />
 
     </main>
   )

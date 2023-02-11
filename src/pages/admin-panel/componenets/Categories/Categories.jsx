@@ -27,7 +27,7 @@ const Categories = () => {
 
 
 
-    const headers = {
+    const config = {
         headers: {
             Accept: 'application/json',
             Content_Type: "application/json",
@@ -38,7 +38,7 @@ const Categories = () => {
 
     useEffect(() => {
 
-        axios.get(CATS_BASE_URL, headers)
+        axios.get(CATS_BASE_URL, config)
             .then(response => {
                 const temp = response
                 if (response.status == 200) {

@@ -8,7 +8,7 @@ export const categoriesSlice = createSlice({
     },
     reducers: {
         refreshCategories: (state, action) => {
-            const random = `REFRESH ${Math.random()*10000}`
+            const random = `REFRESH ${Math.random() * 10000}`
             state.value = random;
         }
     }

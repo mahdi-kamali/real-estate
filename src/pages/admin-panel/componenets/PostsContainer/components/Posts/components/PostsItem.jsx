@@ -10,7 +10,7 @@ import { Icon } from '@iconify/react';
 import { Tooltip } from 'react-hover-tooltip';
 import { refreshPosts } from 'src/features/admin-panel/PostsState';
 import { setPopUp } from 'src/features/admin-panel/PopUpStates';
-import { POSTS_POP_GALLERY, POSTS_POP_UPDATE } from 'src/consts/popUp/POP_UP_CONTS';
+import { POSTS_POP_COLORS, POSTS_POP_GALLERY, POSTS_POP_PROPERTIES, POSTS_POP_UPDATE } from 'src/consts/popUp/POP_UP_CONTS';
 import PopUp from 'src/pages/pop-ups/PopUp';
 import PostEdit from './PostEdit';
 
@@ -53,8 +53,15 @@ const PostsItem = ({ data }) => {
     }
 
     const handleGalleryclick = () => {
-        dispatcher(setPopUp({type : POSTS_POP_GALLERY , id : data?.id}))
-        
+        dispatcher(setPopUp({ type: POSTS_POP_GALLERY, id: data?.id }))
+    }
+
+    const handlePropertiesClick = () => {
+        dispatcher(setPopUp({ type: POSTS_POP_PROPERTIES, id: data?.id }))
+    }
+
+    const handleColorsClick = () => {
+        dispatcher(setPopUp({ type: POSTS_POP_COLORS, id: data.id }))
     }
 
 
@@ -123,8 +130,11 @@ const PostsItem = ({ data }) => {
                 <button className='gallery' onClick={handleGalleryclick}>
                     <Icon icon="dashicons:format-gallery" />
                 </button>
-                <button className='peroperties'>
+                <button className='peroperties' onClick={handlePropertiesClick}>
                     <Icon icon="dashicons:screenoptions" />
+                </button>
+                <button className='colors' onClick={handleColorsClick}>
+                    <Icon icon="ic:outline-color-lens" rotate={2} />
                 </button>
             </div>
         </div>

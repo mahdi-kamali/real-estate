@@ -5,42 +5,14 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { BASE_URL_ADMIN } from 'src/consts/API/API_CONSTS';
 import AllSizes from './components/AllSize';
+import LapTopSize from './components/LapTopSize';
+import MobileSize from './components/MobileSize';
+import PcSize from './components/PcSize';
+import Tabletsize from './components/TabletSize';
 const PostGallery = () => {
 
     const [sideBarIndex, setSideBarIndex] = useState(0)
-    const [allSizeImages, setAllSizeImages] = useState();
-
     const id = useSelector(state => state.popUp.value.id)
-    const token = useSelector(state => state.user.value.token)
-
-
-    const POST_GALLERY_GET_URL = BASE_URL_ADMIN + "post/gallery/" + id
-
-
-
-    const config = {
-        headers: {
-            Accept: 'application/json',
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data"
-        },
-        onUploadProgress: function (progressEvent) {
-            console.log(Math.round((progressEvent.loaded * 100) / progressEvent.total));
-        }
-    };
-
-
-    useEffect(() => {
-
-        if (id !== undefined) {
-            axios
-                .get(POST_GALLERY_GET_URL, config)
-                .then(response => {
-                    setAllSizeImages(response.data.data)
-                })
-        }
-
-    }, id)
 
 
     const showSelectedComponent = () => {
@@ -48,11 +20,11 @@ const PostGallery = () => {
         let component;
 
         switch (sideBarIndex) {
-            case 0: { component = <AllSizes data={allSizeImages} />; break; }
-            // case 1: { component = <AllSizes />; break; }
-            // case 2: { component = <AllSizes />; break; }
-            // case 3: { component = <AllSizes />; break; }
-            // case 4: { component = <AllSizes />; break; }
+            case 0: { component = <AllSizes />; break; }
+            case 1: { component = <PcSize />; break; }
+            case 2: { component = <LapTopSize />; break; }
+            case 3: { component = <Tabletsize />; break; }
+            case 4: { component = <MobileSize />; break; }
         }
         return component
 

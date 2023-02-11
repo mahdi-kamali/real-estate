@@ -20,14 +20,14 @@ const Posts = () => {
 
 
   const dispatcher = useDispatch();
-  
+
 
   const headers = {
     headers: {
       Accept: 'application/json',
       Content_Type: "application/json",
       Authorization: `Bearer ${token}`
-    }
+    },
   }
 
 
@@ -39,6 +39,7 @@ const Posts = () => {
         setPosts(response.data.data)
         dispatcher(setLoading({ show: false }))
       }).catch(error => {
+
       }).finally()
   }, [isRefreshing])
 
