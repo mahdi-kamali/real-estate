@@ -2,11 +2,15 @@ import { Icon } from '@iconify/react';
 import { useState } from 'react';
 import { useTransition, animated } from 'react-spring'
 import IntroSearch from './components/IntroSearch/IntroSearch';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 
 
 const Intro = () => {
 
     const [state, setState] = useState(true);
+
+    const [percentage, setPercentage] = useState(0)
+
     const springAnimation = useTransition(state, {
         config: { duration: 2000 },
         from: { x: -0, y: 0, opacity: 0 },
@@ -52,32 +56,46 @@ const Intro = () => {
             </div>
 
             <div className="intro-header left">
-                <div className="intro-text">
-                    <h1>Home & CO</h1>
+                <img className='background' src={require('./images/5.jpg')} alt="" />
+                <div className="boxs-container">
+                    <div className="box">
+                        <div className="box-container">
+                            <span>4</span>
+                            <span>Year</span>
+                        </div>
+                    </div>
+                    <div className="box">
+                        <div className="box-container">
+                            <span>150</span>
+                            <span>Agents</span>
+                        </div>
+                    </div>
+                    <div className="box">
+                        <div className="box-container">
+                            <span>250</span>
+                            <span>Estates</span>
+                        </div>
+                    </div>
+                    <div className="box">
+                        <div className="box-container">
+                            <span>10</span>
+                            <span>Country</span>
+                        </div>
+                    </div>
+
                 </div>
-                <div className="intro-definition">
-                    <h1>Find Your Dream Home</h1>
-                    <ul>
-                        <li>Nearly 1000+ successful sales</li>
-                        <li>
-                            Properties with world-class capabilities
-                        </li>
-                        <li>
-                            Active consultants and agencies
-                        </li>
-                        <li>
-                            Collaboration with many prominent companies in the world
-                        </li>
-                        <li>
-                            Provide after-sales service and madam support
-                        </li>
-                    </ul>
+                <div className="text-container">
+                    <h1>Lorem Ipsunm ?</h1>
+                    <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum, rerum ullam illo nostrum iste ad aspernatur adipisci facilis excepturi voluptas at in temporibus iusto porro veniam voluptates omnis autem laudantium.
+                    </p>
+                </div>
+                <div className="text-container">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem deserunt est ullam quia, distinctio quo veniam pariatur corporis repellendus atque, cum nihil quae temporibus doloribus repellat, illum voluptatum! Officiis, natus.
                 </div>
             </div>
 
-            <button onClick={() => { setState(!state) }}>
-                Click Me
-            </button>
+
 
         </section>
     )

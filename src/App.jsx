@@ -4,9 +4,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './css/App/App.css';
 import './css/alerts/Alerts.css'
 import './css/Loading/Loading.css'
-import './css/AdminPanel/AdminPanel.css' 
+import './css/AdminPanel/AdminPanel.css'
 import './css/PopUps/PopUps.css'
 import './css/Selectors/Selectors.css'
+import './css/main-page/main-page.css'
 
 // Routes
 import MainPage from './pages/main-page/MainPage';
