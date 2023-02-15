@@ -14,10 +14,113 @@ import "swiper/css/pagination";
 
 // import required modules
 import { EffectFade, Navigation, Pagination } from "swiper";
+import { BASE_APP_URL, BASE_SERVER_ULR } from "src/consts/API/API_CONSTS";
+import { useNavigate } from "react-router-dom";
 
 
 
 const NewEstates = () => {
+
+  const NEW_ESTATES_GET_BASE_URL = BASE_APP_URL + "recent-posts"
+
+  const [newEstates, setNewEstates] = useState([])
+
+  const navigate = useNavigate()
+
+
+
+  useEffect(() => {
+    axios.get(NEW_ESTATES_GET_BASE_URL)
+      .then(response => {
+        setNewEstates(response.data.data)
+      })
+  }, [])
+
+  const getStars = (starsCount) => {
+    let stars = [];
+    for (let i = 0; i < starsCount; i++) {
+      stars.push(<Icon icon="emojione:star" key={i} />)
+    }
+    return stars;
+  }
+
+
+  const onclickDetail = (id) => {
+    navigate("post/" + id)
+  }
+
+
+
+  const getAllEstate = newEstates.map((item, index) => {
+    return <SwiperSlide key={index}>
+      <div className="item  page-grid-style-responsive">
+        <div className="item-body left">
+          <div className="item-price">
+            $<span>{item.attributes.price}</span>
+          </div>
+          <div className="item-name">
+            <h1>{item.attributes.location}</h1>
+          </div>
+          <div className="item-address">
+            <h2>Atlanta, GA 30305</h2>
+          </div>
+          <div className="item-rating">
+            <h2><span>{item.attributes.rating}</span> Star</h2>
+            <div className="stars">
+              {
+                getStars(item.attributes.rating).map(star => {
+                  return (star)
+                })
+              }
+
+            </div>
+          </div>
+          <div className="item-category">
+            {
+              item.attributes.tags.map((tag, index) => {
+                return (
+                  <div className="category" key={index}>
+                    <span>#{tag.title}</span>
+                  </div>
+                )
+              })
+            }
+          </div>
+          <div className="item-description">
+            <p>
+              {item.attributes.description}
+            </p>
+          </div>
+          <div className="item-properties">
+            {
+              item.attributes.properties.map((property, index) => {
+                return (
+                  <div className="property" key={index}>
+                    {<Icon className="icon" icon={property.svg} />}
+                    <span>{property.name}</span>
+                    <span>{property.value}</span>
+                  </div>
+                )
+              })
+            }
+
+          </div>
+          <div className="view-inside"
+            onClick={() => onclickDetail(item.id)}>
+            <span>View Inside</span>
+            <Icon icon="bi:arrow-right" />
+          </div>
+        </div>
+        <div className="item-image right">
+          <img src={
+            BASE_SERVER_ULR +
+            item.attributes.image.indexArray.largeRect} alt="" />
+        </div>
+      </div>
+    </SwiperSlide>
+  })
+
+
 
   return (
     <section className='new-estates '>
@@ -35,142 +138,20 @@ const NewEstates = () => {
           pagination={{
             clickable: true,
           }}
+          observer={true}
+          observeParents={true}
+          shouldSwiperUpdate={true}
+          watchSlidesProgress={true}
           modules={[EffectFade, Navigation, Pagination]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <div className="item  page-grid-style-responsive">
-              <div className="item-body left">
-                <div className="item-price">
-                  $<span>1,100,000</span>
-                </div>
-                <div className="item-name">
-                  <h1>665 Norfleet Rd NW</h1>
-                </div>
-                <div className="item-address">
-                  <h2>Atlanta, GA 30305</h2>
-                </div>
-                <div className="item-rating">
-                  <h2><span>4</span> Star</h2>
-                  <div className="stars">
-                    <Icon icon="emojione:star" />
-                    <Icon icon="emojione:star" />
-                    <Icon icon="emojione:star" />
-                    <Icon icon="emojione:star" />
-                  </div>
-                </div>
-                <div className="item-category">
-                  <div className="category">
-                    <span>duplex</span>
-                  </div>
-                  <div className="category">
-                    <span>Home</span>
-                  </div>
-                  <div className="category">
-                    <span>Vacation House</span>
-                  </div>
-                  <div className="category">
-                    <span>Vailla</span>
-                  </div>
-                  <div className="category">
-                    <span>duplex</span>
-                  </div>
-                </div>
-                <div className="item-description">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, praesentium? Laudantium, harum et fugiat aspernatur in eveniet officiis placeat quod nemo sed numquam explicabo voluptatem doloribus ipsam nam possimus earum.</p>
-                </div>
-                <div className="item-options">
-                  <div className="option bed">
-                    <small>bed <span>3</span> </small>
-                  </div>
-                  <div className="option bath">
-                    <small>bath<span>3</span></small>
-                  </div>
-                  <div className="option parking">
-                    <small>parking<span>3</span></small>
-                  </div>
-                  <div className="option sqft">
-                    <small>sqft<span>3</span></small>
-                  </div>
-                </div>
-                <div className="view-inside">
-                  <span>View Inside</span>
-                  <Icon icon="bi:arrow-right" />
-                </div>
-              </div>
-              <div className="item-image right">
-                <img src={require('./images/4.jpg')} alt="" />
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="item  page-grid-style-responsive">
-              <div className="item-body left">
-                <div className="item-price">
-                  $<span>1,100,000</span>
-                </div>
-                <div className="item-name">
-                  <h1>665 Norfleet Rd NW</h1>
-                </div>
-                <div className="item-address">
-                  <h2>Atlanta, GA 30305</h2>
-                </div>
-                <div className="item-rating">
-                  <h2><span>4</span> Star</h2>
-                  <div className="stars">
-                    <Icon icon="emojione:star" />
-                    <Icon icon="emojione:star" />
-                    <Icon icon="emojione:star" />
-                    <Icon icon="emojione:star" />
-                  </div>
-                </div>
-                <div className="item-category">
-                  <div className="category">
-                    <span>duplex</span>
-                  </div>
-                  <div className="category">
-                    <span>Home</span>
-                  </div>
-                  <div className="category">
-                    <span>Vacation House</span>
-                  </div>
-                  <div className="category">
-                    <span>Vailla</span>
-                  </div>
-                  <div className="category">
-                    <span>duplex</span>
-                  </div>
-                </div>
-                <div className="item-description">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, praesentium? Laudantium, harum et fugiat aspernatur in eveniet officiis placeat quod nemo sed numquam explicabo voluptatem doloribus ipsam nam possimus earum.</p>
-                </div>
-                <div className="item-options">
-                  <div className="option bed">
-                    <small>bed <span>3</span> </small>
-                  </div>
-                  <div className="option bath">
-                    <small>bath<span>3</span></small>
-                  </div>
-                  <div className="option parking">
-                    <small>parking<span>3</span></small>
-                  </div>
-                  <div className="option sqft">
-                    <small>sqft<span>3</span></small>
-                  </div>
-                </div>
-                <div className="view-inside">
-                  <span>View Inside</span>
-                  <Icon icon="bi:arrow-right" />
-                </div>
-              </div>
-              <div className="item-image right">
-                <img src={require('./images/2.jpg')} alt="" />
-              </div>
-            </div>
-          </SwiperSlide>
+
+          {getAllEstate}
+
+
         </Swiper>
       </div>
-    </section>
+    </section >
   )
 }
 

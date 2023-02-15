@@ -21,6 +21,7 @@ import Loading from './pages/loadings/Loading';
 
 // Image Picker
 import 'react-image-picker-editor/dist/index.css'
+import PostDetailPage from './pages/post-detail/PostDetailPage';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
       <BrowserRouter >
         <Routes>
           <Route path='/' element={<MainPage />} />
+          <Route path='/post/:id' element={<PostDetailPage />} />
           <Route path='/admin-panel/dashboard' element={<AdminPanel />} />
         </Routes>
       </BrowserRouter>

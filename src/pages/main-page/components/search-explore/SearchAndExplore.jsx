@@ -1310,16 +1310,17 @@ const SearchAndExplore = () => {
     <section className="search-explore">
       <div className="section-header">
         <h1>
-          <span>Search</span>
-          &
-          <span>Explore</span>
+          <span>Property</span>
+          <span>Detail</span>
         </h1>
       </div>
       <div className="section-body">
         {
           searchExploreCards.map(card => {
             return (
-              <SearchAndExploreCard card={card} key={Math.random(255)} />
+              <SearchAndExploreCard
+                card={card}
+                key={Math.random(255)} />
             )
           })
         }
@@ -1328,7 +1329,7 @@ const SearchAndExplore = () => {
     </section>
   )
 
-  
+
 }
 
 export default SearchAndExplore

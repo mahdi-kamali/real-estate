@@ -1,6 +1,6 @@
 import { Icon } from '@iconify/react';
 import axios from 'axios';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setLoading } from 'src/features/admin-panel/LoadingStates';
 import { closePopUp, setPopUp } from 'src/features/admin-panel/PopUpStates';
@@ -15,6 +15,7 @@ const UserSignUp = ({ setMode }) => {
     const [email, setEmail] = useState()
     const [password, setPassword] = useState();
     const [passwordConfirmation, setPasswordConfirmation] = useState()
+    const [image, setImage] = useState();
 
     const [error, setError] = useState()
     const [success, setSuccess] = useState()
@@ -25,6 +26,9 @@ const UserSignUp = ({ setMode }) => {
     const tempEmail = `${Math.floor(Math.random() * 1000)}@gmail.com`
     const tempPassword = "12345678"
     const tempName = "tester"
+
+    const imageInput = useRef()
+    const imageRef = useRef()
 
 
     const dispatcher = useDispatch()
@@ -50,6 +54,23 @@ const UserSignUp = ({ setMode }) => {
         setPasswordConfirmation(value)
     }
 
+    const onImageSelect = (e) => {
+        const file = e.target.files[0]
+
+        const fileLoader = new FileReader()
+
+        fileLoader.readAsDataURL(file)
+
+        fileLoader.onload = (e) => {
+            imageRef.current.src = e.target.result
+        }
+
+    }
+
+    const onImageClick = () => {
+        imageInput.current.click()
+    }
+
     const signUpClick = () => {
         const params = {
             name: name,
@@ -61,7 +82,7 @@ const UserSignUp = ({ setMode }) => {
             'Content-Type': 'application/vnd.api+json',
         }
 
-        dispatcher(setLoading({show : true}))
+        dispatcher(setLoading({ show: true }))
         setDisabled(true)
 
         setTimeout(() => {
@@ -83,8 +104,8 @@ const UserSignUp = ({ setMode }) => {
                     setError(errorMessage)
                     setSuccess(undefined)
                 })
-                dispatcher(setLoading({show : false}))
-                setDisabled(false)
+            dispatcher(setLoading({ show: false }))
+            setDisabled(false)
         }, 3000)
 
 
@@ -92,8 +113,24 @@ const UserSignUp = ({ setMode }) => {
 
 
 
+
     return (
         <div className="left-body sign-up">
+            <fieldset className="form-image">
+                <input
+                    type="file"
+                    required
+                    accept='image/*'
+                    name='image'
+                    onChange={onImageSelect}
+                    ref={imageInput}
+                />
+                <img
+                    src={require("./image/avatar.jpg")}
+                    onClick={onImageClick}
+                    ref={imageRef}
+                />
+            </fieldset>
             <fieldset className="form-group">
                 <legend><Icon icon="wpf:name" />Name</legend>
                 <input type="text" required onChange={nameInputChange} />

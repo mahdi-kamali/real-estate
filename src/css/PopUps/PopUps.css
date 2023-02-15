@@ -18,9 +18,10 @@
   max-height: 100%;
   min-height: 100%;
   overflow: auto;
-  background: linear-gradient(225deg, #ffffff, rgba(216, 216, 216, 0.1137254902));
   transition: all ease 0.5s !important;
   background-image: white;
+  display: flex;
+  align-items: center;
 }
 .pop-up .container .close-buttons {
   position: absolute;
@@ -46,8 +47,9 @@
   color: black;
   display: grid;
   grid-template-columns: 35% 65%;
-  height: 100%;
   background-color: black;
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
 .user-popup .user-popup-container .right {
   height: 100%;
@@ -100,6 +102,20 @@
   align-items: center;
   flex-direction: column;
   animation: fadeIn 3s ease forwards;
+}
+.user-popup .user-popup-container .left .left-body .form-image img {
+  width: 8rem;
+  height: 8rem;
+  background-blend-mode: multiply;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 4px white solid;
+  box-shadow: 0 0 1rem 0.1rem rgba(0, 0, 0, 0.6);
+}
+.user-popup .user-popup-container .left .left-body .form-image input {
+  display: none;
 }
 .user-popup .user-popup-container .left .left-body .form-group {
   display: flex;
@@ -519,6 +535,9 @@
   max-width: 15%;
   overflow: auto;
 }
+.post-pop-up .post-body table tbody tr td .icon {
+  font-size: 3rem;
+}
 .post-pop-up .post-body table tbody tr td .form-buttons {
   display: flex;
   flex-direction: column;
@@ -576,7 +595,9 @@
 .post-pop-up .post-body .add-property .form-group label {
   padding-left: 1em;
 }
-.post-pop-up .post-body .add-property .form-group input,
+.post-pop-up .post-body .add-property .form-group input[type=text],
+.post-pop-up .post-body .add-property .form-group input[type=range],
+.post-pop-up .post-body .add-property .form-group input[type=file],
 .post-pop-up .post-body .add-property .form-group textarea {
   all: unset;
   font-size: 1rem;
@@ -587,7 +608,9 @@
   transition: all 1s ease;
   color: rgba(0, 0, 0, 0.689);
 }
-.post-pop-up .post-body .add-property .form-group input:hover,
+.post-pop-up .post-body .add-property .form-group input[type=text]:hover,
+.post-pop-up .post-body .add-property .form-group input[type=range]:hover,
+.post-pop-up .post-body .add-property .form-group input[type=file]:hover,
 .post-pop-up .post-body .add-property .form-group textarea:hover {
   box-shadow: 0.2rem 0.2rem 0.2rem 0.1rem rgba(0, 0, 0, 0.3);
 }
@@ -602,18 +625,65 @@
 .post-pop-up .post-body .add-property .form-group textarea:focus {
   height: 15rem;
 }
-.post-pop-up .post-body .add-property .form-group:last-child {
+.post-pop-up .post-body .add-property .svg-picker {
+  grid-column: -1/1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2em;
+}
+.post-pop-up .post-body .add-property .svg-picker .picker-header {
+  font-size: 3rem;
+}
+.post-pop-up .post-body .add-property .svg-picker .picker-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.post-pop-up .post-body .add-property .svg-picker .picker-body label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.post-pop-up .post-body .add-property .svg-picker .picker-body label input {
+  all: unset;
+  width: 30ch;
+  background-color: #d2dce7;
+  padding: 0.5em 1em;
+  border-radius: 100rem;
+}
+.post-pop-up .post-body .add-property .svg-picker .picker-body label button {
+  all: unset;
+  background-color: #4a617f;
+  color: white;
+  padding: 0.4em 2em;
+  border-radius: 1000rem;
+}
+.post-pop-up .post-body .add-property .svg-picker .picker-body .search-results {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+.post-pop-up .post-body .add-property .svg-picker .picker-body .search-results .icon {
+  width: 3rem;
+  font-size: 3rem;
+}
+.post-pop-up .post-body .add-property .svg-picker .picker-body .search-results .selected {
+  background-color: green;
+  color: white;
+}
+.post-pop-up .post-body .add-property .image-preview {
   grid-column: -1/1;
   font-size: 3rem;
-  font-weight: bold;
-  margin-top: 2rem;
 }
-.post-pop-up .post-body .add-property .form-group:last-child label {
+.post-pop-up .post-body .add-property .image-preview label {
   padding: 0.3em 1em;
-  border-bottom: 0.3rem black solid;
 }
-.post-pop-up .post-body .add-property .form-group:last-child img {
+.post-pop-up .post-body .add-property .image-preview img {
   margin-top: 1rem;
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
 }
 
 .post-gallery-pop-up {

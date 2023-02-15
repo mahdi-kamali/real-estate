@@ -1,5 +1,38 @@
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { BASE_APP_URL, BASE_SERVER_ULR } from "src/consts/API/API_CONSTS"
 
 const Categories = () => {
+
+
+    const CATEGORIES_GET_BASE_URL = BASE_APP_URL + "category"
+
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+        axios.get(CATEGORIES_GET_BASE_URL).then(
+            response => {
+                setCategories(response.data.data)
+            }
+        )
+    }, [])
+
+
+
+    const Category = ({ data }) => {
+        return (
+            <div className="cat">
+                <div className="cat-header">
+                    <h1>{data.attributes.name}</h1>
+                </div>
+                <div className="cat-body">
+                    <img src={BASE_SERVER_ULR + data.attributes.image.indexArray.large} alt="" />
+                </div>
+            </div>
+        )
+    }
+
+
     return (
         <section className="categories">
             <div className="categories-header">
@@ -8,62 +41,12 @@ const Categories = () => {
                 </h1>
             </div>
             <div className="categories-body">
-                <div className="cat">
-                    <div className="cat-header">
-                        <h1>Apartment</h1>
-                    </div>
-                    <div className="cat-body">
-                        <img src={require("./images/residential/5.jpg")} alt="" />
-                    </div>
-                </div>
-                <div className="cat">
-                    <div className="cat-header">
-                        <h1>Duplex</h1>
-                    </div>
-                    <div className="cat-body">
-                        <img src={require("./images/residential/2.jpg")} alt="" />
-                    </div>
-                </div>
-                <div className="cat">
-                    <div className="cat-header">
-                        <h1>Family Home</h1>
-                    </div>
-                    <div className="cat-body">
-                        <img src={require("./images/residential/3.jpg")} alt="" />
-                    </div>
-                </div>
-                <div className="cat">
-                    <div className="cat-header">
-                        <h1>Town Home</h1>
-                    </div>
-                    <div className="cat-body">
-                        <img src={require("./images/residential/4.jpg")} alt="" />
-                    </div>
-                </div>
-                <div className="cat">
-                    <div className="cat-header">
-                        <h1>sky scraper</h1>
-                    </div>
-                    <div className="cat-body">
-                        <img src={require("./images/residential/6.jpg")} alt="" />
-                    </div>
-                </div>
-                <div className="cat">
-                    <div className="cat-header">
-                        <h1>Familiy Home</h1>
-                    </div>
-                    <div className="cat-body">
-                        <img src={require("./images/residential/1.jpg")} alt="" />
-                    </div>
-                </div>
-                <div className="cat">
-                    <div className="cat-header">
-                        <h1>Town Home</h1>
-                    </div>
-                    <div className="cat-body">
-                        <img src={require("./images/residential/2.jpg")} alt="" />
-                    </div>
-                </div>
+                {
+                    categories.map((cat, index) => {
+                        return <Category key={index} data={cat} />
+                    })
+                }
+
             </div>
         </section>
     )

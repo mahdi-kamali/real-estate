@@ -16,7 +16,6 @@ import {
     PointElement,
 } from 'chart.js';
 import { Doughnut, Bar, Line } from 'react-chartjs-2';
-import { BASE_SERVER_ULR } from 'src/consts/API/API_CONSTS';
 
 ChartJS.register(
     ArcElement,
@@ -34,7 +33,7 @@ Chart.defaults.font.size = 16
 
 function getStars(starsCount) {
     let starsList = []
-    for (let starIndex = 0; starIndex < starsCount; starIndex++) {
+    for (let starIndex = 1; starIndex < starsCount; starIndex++) {
         starsList.push(<Icon key={starIndex} icon="emojione:star" />
         )
     }
@@ -43,11 +42,7 @@ function getStars(starsCount) {
 
 }
 
-const CardDescription = ({ post }) => {
-
-
-    console.log(post.attributes.properties)
-
+const CardDescription = (props) => {
 
     const barChartOption = {
         indexAxis: 'y',
@@ -84,20 +79,22 @@ const CardDescription = ({ post }) => {
             <div className="left">
                 <div className="card-star">
                     <div className="star-header">
-                        <span>{post.attributes.rating}</span> Star </div>
+                        <span>{props.card.rating.rate}</span> Star </div>
                     <div className="star-body">
+
                         {
-                            getStars(post.attributes.rating)
+
+                            getStars(
+                                props.card.rating.rate
+                            )
                         }
+
+                        <Icon icon="emojione:star" />
                     </div>
                 </div>
                 <div className="card-category">
-                    {post.attributes.tags.map((tag, index) => {
-                        return (
-                            <>
-                                <span key={index}>#{tag.title}</span>
-                            </>
-                        )
+                    {props.card.inCategories.map((category, index) => {
+                        return <span key={index}>{category}</span>
                     })}
                 </div>
                 <div className="card-charts">
@@ -106,7 +103,7 @@ const CardDescription = ({ post }) => {
                         <Icon icon="carbon:chart-line" />
                     </div>
                     <div className="chart-body">
-                        {/* {<Bar data={props.card.rating.data} options={barChartOption} />} */}
+                        {<Bar data={props.card.rating.data} options={barChartOption} />}
                     </div>
                 </div>
             </div>
@@ -116,36 +113,45 @@ const CardDescription = ({ post }) => {
                     <div className="card-agent-header">
 
                         <div className="agent-image">
-                            {/* <img src={props.card.agent.info.image} alt={props.card.agent.info.imageAlt} /> */}
+                            <img src={props.card.agent.info.image} alt={props.card.agent.info.imageAlt} />
                         </div>
                     </div>
                     <div className="card-agent-body">
                         <div className="agent-name">
-                            {/* <span>{props.card.agent.info.name}</span> */}
+                            <span>{props.card.agent.info.name}</span>
                             <h1>Advisor</h1>
                         </div>
                         <div className="agent-comment">
-                            {/* {props.card.agent.comment} */}
+                            {props.card.agent.comment}
                         </div>
                     </div>
 
 
                 </div>
                 <div className="card-facilities">
+
                     <div className="card-facilities-header">
                         <h1>facilities</h1>
                     </div>
                     <div className="card-facilities-body">
-                        {
-                            post.attributes.properties.map((item, index) => {
-                                console.log(item)
-                                return <div className="item">
-                                    <Icon className='icon' icon={item.svg} />
-                                    <span>{item.name} {item.value}</span>
-                                </div>
-                            })
-                        }
+                        <div className="item">
+                            <Icon icon="fluent:bed-16-regular" />
+                            <span>{props.card.facilities.beds} beds</span>
+                        </div>
+                        <div className="item">
+                            <Icon icon="cil:bathroom" />
+                            <span>{props.card.facilities.baths} Baths</span>
+                        </div>
+                        <div className="item">
+                            <Icon icon="uil:parking-square" />
+                            <span>{props.card.facilities.parking} parking</span>
+                        </div>
+                        <div className="item">
+                            <Icon icon="bx:area" />
+                            <span>{props.card.facilities.sqft} sqft</span>
+                        </div>
                     </div>
+
                 </div>
 
             </div>

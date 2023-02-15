@@ -118,6 +118,13 @@ const PostColors = () => {
                             value={colorValue.hex} />
                     </label>
                     <label >
+                        <span>Color Type</span>
+                        <select name="type" >
+                            <option value="primary">Primary</option>
+                            <option value="secondary">secondary</option>
+                        </select>
+                    </label>
+                    <label >
                         <span>Color Percentage
                             <small> {percent}%</small>
                         </span>

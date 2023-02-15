@@ -13,6 +13,8 @@ import { Pagination, Navigation } from "swiper";
 
 import { Icon } from '@iconify/react';
 import { useState } from "react";
+import { BASE_SERVER_ULR } from "src/consts/API/API_CONSTS";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -20,16 +22,17 @@ import { useState } from "react";
 
 
 
-const SwiperCardList = (props) => {
+const SwiperCardList = ({ cards }) => {
 
     const [swiper, setSwiper] = useState()
     const [width, setWidth] = useState()
 
+    const navigator = useNavigate()
 
 
 
     if (
-        props.cards
+        cards
     ) {
         return (
             <div className="swiper-card-list">
@@ -50,16 +53,27 @@ const SwiperCardList = (props) => {
                     }}
                     onResize={() => {
                         setWidth(swiper.width / 360)
-                      }}
+                    }}
                     navigation={true}
                     modules={[Navigation]}
                     className="swiper" >
                     {
-                        props.cards.map((card, index) => {
+                        cards.map((card, index) => {
+                            const image = card.attributes.image?.indexArray.largeRect
+                            const postImage = card.attributes.postImage?.indexArray.largeRect
+
+
+                            const handleOnClick = () => {
+                                navigator("post/" + card.id)
+                            }
+
                             return (
-                                <SwiperSlide className='swiper-slide-custome' key={index}>
+                                <SwiperSlide
+                                    className='swiper-slide-custome'
+                                    key={index}
+                                    onClick={handleOnClick}>
                                     <div className="swiper-slide-custome-header">
-                                        <img src={card.images.big} />
+                                        <img src={BASE_SERVER_ULR + (image ? image : postImage)} />
                                     </div>
                                     <div className="swiper-slide-custome-body">
                                         <div className="icons">
@@ -67,25 +81,39 @@ const SwiperCardList = (props) => {
                                             <Icon icon={card.isLiked ? 'twemoji:red-heart' : 'el:heart-empty'} />
                                         </div>
                                         <div className="price">
-                                            $ {card.price}
+                                            $ {card.attributes.price}
                                         </div>
                                         <div className="name">
-                                            {card.name}
+                                            <Icon
+                                                className="icon" icon="material-symbols:home" />
+                                            {card.attributes.title}
                                         </div>
                                         <div className="address">
-                                            {card.address}
+                                            <Icon
+                                                className="icon"
+                                                icon="material-symbols:location-on" /> {card.attributes.location}
                                         </div>
-                                        <div className="options">
-                                            {card.options.map((option, index) => {
-                                                return (
-                                                    <div className="option" key={index}>
-                                                        <Icon icon={option.svg} />
-                                                        <span>
-                                                            {option.body}
-                                                        </span>
-                                                    </div>
-                                                )
-                                            })}
+                                        <div className="description">
+                                            <p>
+                                                {card.attributes.description}
+                                            </p>
+                                        </div>
+                                        <div className="properties">
+                                            {
+                                                card.attributes?.properties?.map((option, index) => {
+                                                    return (
+                                                        <div
+                                                            className="property"
+                                                            key={index}>
+                                                            <Icon icon={option.svg} />
+                                                            <span>
+                                                                {option.value}
+                                                            </span>
+                                                        </div>
+                                                    )
+                                                })
+                                            }
+
                                         </div>
                                     </div>
                                 </SwiperSlide>
@@ -97,7 +125,7 @@ const SwiperCardList = (props) => {
             </div>
         )
     } else {
-        return 'teqtqet'
+        return ''
     }
 
 

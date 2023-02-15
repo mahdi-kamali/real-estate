@@ -3,8 +3,7 @@
 // Image Parallax Slider
 import ImageSlider from '../image-slider/ImageSlider'
 
-// Card Parallax
-import CardParallax from './card-rows/CardParallax'
+
 
 // Card Description
 import CardDescription from './card-rows/CardDescription'

@@ -7,6 +7,7 @@ import Categories from './components/categories/Categories';
 import Search from './components/search/Search';
 import ByCategory from './components/by-category/ByCategory';
 import Footer from './components/outro/Footer';
+import PopUp from "../pop-ups/PopUp";
 
 
 
@@ -16,17 +17,17 @@ const MainPage = () => {
 
 
     return (
-        <div className="main-page">
+        <main className="main-page">
             <Header />
             <Intro />
             <Categories />
             <NewEstates />
             <Search />
             <ByCategory />
-            <SearchAndExplore />
             <Agents />
             <Footer />
-        </div>
+            <PopUp />
+        </main>
     )
 }
 

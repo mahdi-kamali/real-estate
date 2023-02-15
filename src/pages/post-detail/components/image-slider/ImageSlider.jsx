@@ -10,20 +10,20 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Pagination, Navigation, Thumbs, EffectFade } from "swiper";
+
+
+import { Icon } from '@iconify/react';
 import { useState } from "react";
-import { BASE_SERVER_ULR } from "src/consts/API/API_CONSTS";
+import CardParallax from "../card-rows/CardParallax";
 
 
 
 
-const ImageSlider = ({ post }) => {
+const ImageSlider = ({ card }) => {
     const [swiper, setSwiper] = useState()
     const [width, setWidth] = useState()
-
-
-
     return (
-        <div className="swiper-image-slider ">
+        <div className="swiper-image-slider">
 
             <Swiper
                 onSwiper={setSwiper}
@@ -41,26 +41,12 @@ const ImageSlider = ({ post }) => {
                 effect={"fade"}
                 className="top-swiper" >
                 {
-                    post.attributes.galleries.map((gallery, index) => {
-                        if (gallery.type === "pc") {
-                            return (
-                                <SwiperSlide className='top-slide' key={index}>
-                                    <div className="top-slide-content">
-                                        <img className="slide-image" src={BASE_SERVER_ULR + gallery.image} alt="" />
-                                        <div className="info">
-                                            <div className="left">
-                                                <div className="price">${post.attributes.price}</div>
-                                            </div>
-                                            <div className="right">
-                                                <div className="name">{post.attributes.title}</div>
-                                                <div className="location">{post.attributes.location}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                            )
-                        }
-
+                    card.gallery.map((image, index) => {
+                        return (
+                            <SwiperSlide className='top-slide' key={index}>
+                                <CardParallax card={undefined} indexImage={index} />
+                            </SwiperSlide>
+                        )
                     })
                 }
             </Swiper>
@@ -88,19 +74,18 @@ const ImageSlider = ({ post }) => {
                 modules={[Navigation, Thumbs]}
                 className="gallery-swiper" >
                 {
-                    post.attributes.galleries.map((gallery, index) => {
-                        return (
-                            <SwiperSlide className='gallery-slide' key={index}>
-                                <img src={BASE_SERVER_ULR + gallery.image} alt="" />
-                            </SwiperSlide>
-                        )
-                    })
+                    // .map((image, index) => {
+                    //     return (
+                    //         <SwiperSlide className='gallery-slide' key={index}>
+                    //             <img src={image.src} alt="" />
+                    //         </SwiperSlide>
+                    //     )
+                    // })
                 }
             </Swiper>
 
         </div>
     )
-
 }
 
 export default ImageSlider

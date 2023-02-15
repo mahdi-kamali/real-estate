@@ -33,17 +33,24 @@ const PostProperties = () => {
     const [imgSrc, setImgSrc] = useState()
     const [properties, setProperties] = useState([])
     const [percentage, setPercentage] = useState(0)
+    const [showSvg, setShowSvg] = useState(false)
+    const [svgQuery, setSvgQuery] = useState("bed")
+    const [svgs, setSvgs] = useState([])
+    const [selectedSvg, setSelectedSvg] = useState("")
 
 
 
     const token = useSelector(state => state.user.value.token)
     const propertiesState = useSelector(state => state.properties.value)
 
+
+
     const config = {
         headers: {
             Accept: 'application/json',
             Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data"
+            "Content-Type": "multipart/form-data",
+            "Charset": "UTF-8"
         },
         onUploadProgress: function (progressEvent) {
             console.log(Math.round((progressEvent.loaded * 100) / progressEvent.total));
@@ -55,6 +62,8 @@ const PostProperties = () => {
         e.preventDefault();
 
         const formData = new FormData(e.target)
+
+
 
 
 
@@ -112,6 +121,15 @@ const PostProperties = () => {
 
         fileReader.readAsDataURL(file)
 
+    }
+
+    const hanldeSearchClick = () => {
+        const ICONIFY_GET_SVG_URL =
+            `https://api.iconify.design/search?query=${svgQuery}&limit=100`
+        axios.get(ICONIFY_GET_SVG_URL)
+            .then(response => {
+                setSvgs(response.data.icons)
+            })
     }
 
 
@@ -177,14 +195,59 @@ const PostProperties = () => {
                             onChange={onImageChange} />
                     </div>
                     <div className="form-group">
-                        <button className="submit">Submit</button>
+                        <label>Svg</label>
+                        <input
+                            type="text"
+                            name="svg"
+                            readOnly
+                            required
+                            value={selectedSvg}
+                        />
                     </div>
                     <div className="form-group">
-                        <label>Preview</label>
+                        <button className="submit">Submit</button>
+                    </div>
+                    <div className="svg-picker">
+                        <div className="picker-header">
+                            <h1>Svg Picker</h1>
+                        </div>
+                        <div className="picker-body">
+                            <label >
+                                <input
+                                    type="text"
+                                    placeholder="Bed"
+                                    onChange={(e) => { setSvgQuery(e.target.value) }} />
+                                <button
+                                    type="button"
+                                    onClick={hanldeSearchClick}>
+                                    Search
+                                </button>
+                            </label>
+                            <div className="search-results">
+                                {
+                                    svgs?.map((icon, index) => {
+                                        return (
+                                            <Icon
+                                                onClick={() => { setSelectedSvg(icon) }}
+                                                className=
+                                                {`icon 
+                                                ${selectedSvg === icon ? "selected" : ""}`}
+                                                key={index}
+                                                icon={icon}
+                                            />
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div className="image-preview">
+                        <label>Image Preview</label>
                         {
                             imgSrc ? <img src={imgSrc} alt="" /> : ""
                         }
                     </div>
+
                 </div>
                 <table>
                     <thead>
@@ -194,6 +257,7 @@ const PostProperties = () => {
                             <th>Percentage</th>
                             <th>Description</th>
                             <th>Image</th>
+                            <th>Svg</th>
                             <th>Status</th>
                             <th>Controls</th>
                         </tr>
@@ -229,6 +293,7 @@ const PostProperties = () => {
                                     <td>{attributes.percentage}%</td>
                                     <td>{attributes.description}</td>
                                     <td ><img src={BASE_SERVER_ULR + attributes.image} /></td>
+                                    <td>{<Icon className="icon" icon={attributes.svg} />}</td>
                                     <td>{attributes.status}</td>
                                     <td>
                                         <div className="form-buttons">

@@ -43,9 +43,9 @@ const Search = () => {
                 body: '2000',
                 svg: 'bx:area'
             }
-        ] ,
-        detailLink : '' ,
-        isLiked : true 
+        ],
+        detailLink: '',
+        isLiked: true
     }
     const cardTwo = {
         name: '99 Chestnut Hill Ave',
@@ -83,11 +83,11 @@ const Search = () => {
                 body: '2000',
                 svg: 'bx:area'
             }
-        ] ,
-        detailLink : '' ,
-        isLiked : true 
+        ],
+        detailLink: '',
+        isLiked: true
 
-        
+
     }
     const cardThree = {
         name: '99 Chestnut Hill Ave',
@@ -125,9 +125,9 @@ const Search = () => {
                 body: '2000',
                 svg: 'bx:area'
             }
-        ] ,
-        detailLink : '' ,
-        isLiked : true 
+        ],
+        detailLink: '',
+        isLiked: true
     }
     const cardFour = {
         name: '99 Chestnut Hill Ave',
@@ -165,9 +165,9 @@ const Search = () => {
                 body: '2000',
                 svg: 'bx:area'
             }
-        ] ,
-        detailLink : '' ,
-        isLiked : true 
+        ],
+        detailLink: '',
+        isLiked: true
     }
     const cardFive = {
         name: '99 Chestnut Hill Ave',
@@ -205,9 +205,9 @@ const Search = () => {
                 body: '2000',
                 svg: 'bx:area'
             }
-        ] ,
-        detailLink : '' ,
-        isLiked : true 
+        ],
+        detailLink: '',
+        isLiked: true
     }
     const cardSix = {
         name: '99 Chestnut Hill Ave',
@@ -245,13 +245,13 @@ const Search = () => {
                 body: '2000',
                 svg: 'bx:area'
             }
-        ] ,
-        detailLink : '' ,
-        isLiked : true 
+        ],
+        detailLink: '',
+        isLiked: true
     }
 
     const recentEstateCards = [
-        cardOne, cardTwo, cardThree, cardFour, cardFive , cardSix
+        cardOne, cardTwo, cardThree, cardFour, cardFive, cardSix
     ]
 
     const uniqueItemCard = {
@@ -272,7 +272,7 @@ const Search = () => {
     }
 
     const uniqueList = [
-        cardOne, cardTwo, cardThree, cardFour, cardFive , cardSix
+        cardOne, cardTwo, cardThree, cardFour, cardFive, cardSix
     ]
 
 
@@ -290,7 +290,7 @@ const Search = () => {
                     <CategorySearch />
                 </div>
                 <div className="row">
-                    <RecentProperties cards={recentEstateCards} />
+                    <RecentProperties />
                 </div>
                 <div className="row">
                     <UniqueItem card={uniqueItemCard} />
